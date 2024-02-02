@@ -1,6 +1,6 @@
 // signup.component.ts
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -29,8 +29,24 @@ export class SignupComponent implements OnInit {
         ],
       ],
 
-      confirmPassword: ['', Validators.required],
+      confirmPassword: ['', [Validators.required, this.matchPasswords.bind(this)]],
     });
+  }
+
+  matchPasswords(control: AbstractControl) {
+    const passwordControl = this.signupForm?.get('password');
+    if (!passwordControl) {
+        return null; // or handle the error appropriately
+    }
+
+    const password = passwordControl.value;
+    const confirmPassword = control.value;
+
+    return password === confirmPassword ? null : { mismatch: true };
+}
+
+  get username() {
+    return this.signupForm.get('username');
   }
 
   getFormControl(name: string) {

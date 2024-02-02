@@ -41,9 +41,12 @@
             <div>
                 <input type="password" formControlName="confirmPassword" placeholder="Confirm Password" />
                 <div *ngIf="getFormControl('confirmPassword').errors && (getFormControl('confirmPassword').dirty || getFormControl('confirmPassword').touched)">
-                    <div *ngIf="getFormControl('confirmPassword').hasError('required')">Confirm Password is required</div>
+                  <div *ngIf="getFormControl('confirmPassword').hasError('required')">Confirm Password is required</div>
+                  <div *ngIf="getFormControl('confirmPassword').hasError('mismatch')">Passwords don't match</div>
                 </div>
-            </div>
+              </div>
+              
+              
             <button type="submit" [disabled]="!signupForm.valid">Sign Up</button>
         </form>
         <p>Already have an account? <a href="#" style="color: #886f4f">Login</a></p>
