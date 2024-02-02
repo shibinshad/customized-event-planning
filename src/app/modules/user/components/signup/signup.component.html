@@ -1,133 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup Page</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background: url('your-background-image.jpg') no-repeat center center fixed;
-            background-size: cover;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-image:url(../../../../../assets/images/pexels-photo-1045541.webp);
-        }
+<!-- signup.component.html -->
+<nav>
+    <h2 class="logo">Customcraze creations</h2>
+    <p>
+        <a class="home-button" href="#">Home</a>
+    </p>
+</nav>
 
-        
-        nav {
-            display: flex;
-            justify-content:space-between;
-            padding: 10px 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-        }
+<div class="background-image">
+    <img src="../../../../../assets/images/pexels-photo-1045541.webp" alt="" />
+</div>
 
-        .logo {
-            font-family: 'Leckerli One', cursive;
-            font-size: 24px;
-            color: #886F4F;
-        }
-
-        .company-name {
-            font-size: 18px;
-            color: #886F4F;
-        }
-
-        .home-button {
-            font-size: 16px;
-            color: #886F4F;
-            text-decoration: none;
-            margin-right: auto; /* Move the home button to the right */
-        }
-
-        .signup-container {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            width: 300px;
-            text-align: center;
-            color: #886F4F;
-            animation: fadeIn 1s ease-out;
-            margin-top: 80px;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .signup-container input {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            box-sizing: border-box;
-            transition: border-color 0.3s ease-out;
-        }
-
-        .signup-container input:focus {
-            border-color: #886F4F; 
-        }
-
-        .signup-container button {
-            width: 100%;
-            padding: 10px;
-            background-color: #886F4F;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease-out;
-        }
-
-        .signup-container button:hover {
-            background-color: #63482F; 
-        }
-
-        @media (max-width: 600px) {
-            .signup-container {
-                width: 90%;
-            }
-        }
-        h2 {
-            font-family: 'Leckerli One', cursive;
-            color: #886F4F;
-            margin-bottom: 5px; 
-        }
-    </style>
-</head>
-<body>
-
-    
-    <nav>
-        
-        <h2 style="margin-bottom:30px;margin-left: 40px;">Customcraze creations</h2>
-        <p style="margin-top: 27px
-        ;"><a style="color: #886F4F; margin-right:30px;" href="">Home</a></p>
-    </nav>
-
-    
+<div class="container">
     <div class="signup-container">
         <h2>Register Now</h2>
-        <form action="#" method="post">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <input type="password" name="conform password" placeholder="Confirm Password" required>
-            <button type="submit">Sign Up</button>
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <div>
+                <input type="text" formControlName="username" placeholder="Username" />
+                <div *ngIf="getFormControl('username').errors && (getFormControl('username').dirty || getFormControl('username').touched)">
+                    <div *ngIf="getFormControl('username').hasError('required')">Username is required</div>
+                    <div *ngIf="getFormControl('username').hasError('pattern')">Invalid username format</div>
+                </div>
+            </div>
+            
+            <div>
+                <input type="email" formControlName="email" placeholder="Email" />
+                <div *ngIf="getFormControl('email').errors && (getFormControl('email').dirty || getFormControl('email').touched)">
+                    <div *ngIf="getFormControl('email').hasError('required')">Email is required</div>
+                    <div *ngIf="getFormControl('email').hasError('email')">Invalid email format</div>
+                </div>
+            </div>
+            
+            <div>
+                <input type="password" formControlName="password" placeholder="Password" />
+                <div *ngIf="getFormControl('password').errors && (getFormControl('password').dirty || getFormControl('password').touched)">
+                    <div *ngIf="getFormControl('password').hasError('required')">Password is required</div>
+                    <div *ngIf="getFormControl('password').hasError('pattern')">Invalid password format</div>
+                </div>
+            </div>
+            
+            <div>
+                <input type="password" formControlName="confirmPassword" placeholder="Confirm Password" />
+                <div *ngIf="getFormControl('confirmPassword').errors && (getFormControl('confirmPassword').dirty || getFormControl('confirmPassword').touched)">
+                    <div *ngIf="getFormControl('confirmPassword').hasError('required')">Confirm Password is required</div>
+                </div>
+            </div>
+            <button type="submit" [disabled]="!signupForm.valid">Sign Up</button>
         </form>
-        <p>Already have an account? <a style="color: #886F4F;" href="#">Login</a></p>
+        <p>Already have an account? <a href="#" style="color: #886f4f">Login</a></p>
     </div>
-
-</body>
-</html>
+</div>
