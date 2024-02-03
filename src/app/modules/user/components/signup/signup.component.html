@@ -30,6 +30,19 @@
                 </div>
             </div>
             
+        
+
+<div>
+    <input type="tel" formControlName="mobileNumber" placeholder="Mobile Number" />
+       <div *ngIf="getFormControl('mobileNumber').errors && (getFormControl('mobileNumber').dirty || getFormControl('mobileNumber').touched)">
+        <div *ngIf="getFormControl('mobileNumber').hasError('required')">Mobile Number is required</div>
+        <div *ngIf="getFormControl('mobileNumber').hasError('pattern')">Invalid mobile number format</div>
+    </div>
+</div>
+
+
+
+
             <div>
                 <input type="password" formControlName="password" placeholder="Password" />
                 <div *ngIf="getFormControl('password').errors && (getFormControl('password').dirty || getFormControl('password').touched)">

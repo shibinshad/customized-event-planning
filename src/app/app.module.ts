@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserModule } from './modules/user/user.module';
+import {HttpClientModule} from '@angular/common/http'
 
 
 
@@ -14,7 +15,8 @@ import { UserModule } from './modules/user/user.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UserModule
+    UserModule,
+    HttpClientModule
     
   ],
   providers: [],

@@ -1,6 +1,13 @@
 // signup.component.ts
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { FormValidationService } from '../../services/form-validation.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +17,11 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 export class SignupComponent implements OnInit {
   signupForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private serv: FormValidationService
+  ) {}
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
@@ -19,6 +30,12 @@ export class SignupComponent implements OnInit {
         [Validators.required, Validators.pattern(/^[a-zA-Z0-9_-]{3,16}$/)],
       ],
       email: ['', [Validators.required, Validators.email]],
+
+      mobileNumber: [
+        '',
+        [Validators.required, Validators.pattern('^[0-9]{10}$')],
+      ],
+
       password: [
         '',
         [
@@ -29,21 +46,24 @@ export class SignupComponent implements OnInit {
         ],
       ],
 
-      confirmPassword: ['', [Validators.required, this.matchPasswords.bind(this)]],
+      confirmPassword: [
+        '',
+        [Validators.required, this.matchPasswords.bind(this)],
+      ],
     });
   }
 
   matchPasswords(control: AbstractControl) {
     const passwordControl = this.signupForm?.get('password');
     if (!passwordControl) {
-        return null; // or handle the error appropriately
+      return null; // or handle the error appropriately
     }
 
     const password = passwordControl.value;
     const confirmPassword = control.value;
 
     return password === confirmPassword ? null : { mismatch: true };
-}
+  }
 
   get username() {
     return this.signupForm.get('username');
@@ -55,13 +75,24 @@ export class SignupComponent implements OnInit {
 
   onSubmit() {
     if (this.signupForm.valid) {
+      this.serv.getApi(this.signupForm.value).subscribe({
+        next: (response) => {
+          console.log(response);
+        },
+        error: (error) => {
+          console.error(error);
+        },
+      });
       console.log(this.signupForm.value);
     } else {
-      this.signupForm.markAllAsTouched();
       console.log(
         'Password pattern error:',
         this.signupForm.get('password')?.hasError('pattern')
       );
+
+      if (this.signupForm.get('password')?.hasError('pattern')) {
+        console.error('Password has a pattern error');
+      }
     }
   }
 }
