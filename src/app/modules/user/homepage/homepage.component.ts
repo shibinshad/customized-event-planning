@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-homepage',
@@ -8,6 +8,37 @@ import { Component } from '@angular/core';
 export class HomepageComponent {
 
 
-  
+  constructor(private renderer: Renderer2) { }
+
+  ngOnInit(): void {
+    // Array of local image file names
+    const images = [
+      'https://images.pexels.com/photos/1026390/pexels-photo-1026390.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/7159864/pexels-photo-7159864.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/1677710/pexels-photo-1677710.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/587741/pexels-photo-587741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/20043048/pexels-photo-20043048/free-photo-of-wedding-decoration-in-room-with-white-columns.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    ];
+    
+    let index = 0;
+    
+    // Function to change background image
+    const changeBackgroundImage = () => {
+      const backgroundDiv = document.getElementById('background-div');
+      if (index >= images.length) {
+        index = 0; // Reset index if it exceeds the length of the images array
+      }
+      this.renderer.setStyle(backgroundDiv, 'background-image', `url('${images[index]}')`);
+      index++;
+    };
+    
+    // Set initial background image
+    changeBackgroundImage();
+    
+    // Change background image every 5 seconds
+    setInterval(changeBackgroundImage, 5000);
+    
+    
+  }
 
 }

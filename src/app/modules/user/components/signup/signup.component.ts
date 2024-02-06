@@ -16,6 +16,7 @@ import { FormValidationService } from '../../services/form-validation.service';
 })
 export class SignupComponent implements OnInit {
   signupForm!: FormGroup;
+  otpComponent:Boolean=false;
 
   constructor(
     private fb: FormBuilder,
@@ -82,6 +83,7 @@ export class SignupComponent implements OnInit {
         this.serv.getApi(formvalues).subscribe({
           next: (response) => {
             console.log(response);
+            this.otpComponent=true
           },
           error: (error) => {
             console.error(error);

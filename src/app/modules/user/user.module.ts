@@ -1,5 +1,5 @@
 // user.module.ts
-import { NgModule } from '@angular/core';
+import { NgModule, Renderer2 } from '@angular/core';
 import { SignupComponent } from './components/signup/signup.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { FormValidationService } from './services/form-validation.service';
@@ -9,8 +9,8 @@ import { OtpVerificationComponent } from './components/signup/otp-verification/o
 
 @NgModule({
   declarations: [SignupComponent, HomepageComponent, OtpVerificationComponent],
-  imports: [ReactiveFormsModule,CommonModule],
-  providers: [FormValidationService],
+  imports: [ReactiveFormsModule,CommonModule,],
+  providers: [FormValidationService,],
   exports: [SignupComponent, HomepageComponent]
 })
 export class UserModule {}
