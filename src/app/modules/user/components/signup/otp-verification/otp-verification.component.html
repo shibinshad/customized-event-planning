@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTP Verification</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: url('your-image-url.jpg') no-repeat center center fixed;
+      background-size: cover;
+      opacity: 0.8; /* Increased opacity level */
+    }
+    .otp-container {
+      max-width: 400px;
+      margin: 100px auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8); /* Background with opacity */
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .otp-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .otp-input {
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      margin: 0 5px;
+      text-align: center;
+    }
+    .otp-submit {
+      margin-top: 20px;
+      background-color: #886f4f; /* Button color */
+      color: #fff; /* Text color */
+      border: none;
+    }
+    .otp-submit:hover {
+      background-color: #60492c; /* Hover color */
+    }
+    .otp-container p {
+      color: #886f4f; /* Text color for p element */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-12">
+        <div class="otp-container">
+          <h2 class="text-center mb-4">Enter OTP</h2>
+          <form class="otp-form">
+            <div class="form-group d-flex justify-content-center">
+              <input type="text" class="form-control otp-input" id="otp1" (input)="autonext($event)" >
+              <input type="text" class="form-control otp-input" id="otp2" (input)="autonext($event)" >
+              <input type="text" class="form-control otp-input" id="otp3" (input)="autonext($event)" >
+              <input type="text" class="form-control otp-input" id="otp4" (input)="autonext($event)" >
+              <input type="text" class="form-control otp-input" id="otp5" (input)="autonext($event)" >
+              <input type="text" class="form-control otp-input" id="otp6" (input)="autonext($event)" >
+            </div>
+            <button type="submit" class="btn btn-primary btn-block otp-submit">Verify OTP</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function moveToNext(current, nextInputId) {
+      if (current.value.length >= current.maxLength) {
+        document.getElementById(nextInputId).focus();
+      }
+    }
+  </script>
+
+</body>
+</html>

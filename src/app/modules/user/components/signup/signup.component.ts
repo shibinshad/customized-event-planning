@@ -65,8 +65,8 @@ export class SignupComponent implements OnInit {
     return password === confirmPassword ? null : { mismatch: true };
   }
 
-  get username() {
-    return this.signupForm.get('username');
+  get form() {
+    return this.signupForm.controls
   }
 
   getFormControl(name: string) {
@@ -74,25 +74,33 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.signupForm.valid) {
-      this.serv.getApi(this.signupForm.value).subscribe({
-        next: (response) => {
-          console.log(response);
-        },
-        error: (error) => {
-          console.error(error);
-        },
-      });
-      console.log(this.signupForm.value);
-    } else {
-      console.log(
-        'Password pattern error:',
-        this.signupForm.get('password')?.hasError('pattern')
-      );
-
-      if (this.signupForm.get('password')?.hasError('pattern')) {
-        console.error('Password has a pattern error');
+    try{
+      const formvalues = this.signupForm.value
+      console.log('form',formvalues);
+      
+      if (this.signupForm.valid) {
+        this.serv.getApi(formvalues).subscribe({
+          next: (response) => {
+            console.log(response);
+          },
+          error: (error) => {
+            console.error(error);
+          },
+        });
+        
+      } else {
+        console.log(
+          'Password pattern error:',
+          this.signupForm.get('password')?.hasError('pattern')
+        );
+  
+        if (this.signupForm.get('password')?.hasError('pattern')) {
+          console.error('Password has a pattern error');
+        }
       }
+    } catch (error){
+      console.log('otp send error',error);
+      
     }
   }
 }

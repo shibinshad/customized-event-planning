@@ -13,6 +13,8 @@ export class FormValidationService {
   api = 'http://localhost:3000/user/signup';
 
   getApi(data: any): Observable<any> {
+    
+    
     return this.http.post<any>(this.api, data);
   }
 }
