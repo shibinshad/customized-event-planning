@@ -1,4 +1,5 @@
 import { Component, Renderer2 } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -6,7 +7,7 @@ import { Component, Renderer2 } from '@angular/core';
   styleUrls: ['./homepage.component.css'],
 })
 export class HomepageComponent {
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2,private router:Router) {}
 
   ngOnInit(): void {
     // Array of local image file names
@@ -38,7 +39,7 @@ export class HomepageComponent {
     };
 
     // Set initial background image
-    changeBackgroundImage();
+    // changeBackgroundImage();
 
     // Change background image every 5 seconds
     setInterval(changeBackgroundImage, 5000);
@@ -49,4 +50,9 @@ export class HomepageComponent {
     this.showDiv = !this.showDiv;
     console.log('btn  clicked!', this.showDiv);
   }
+  goSignup(){
+    this.router.navigate(['signup']);
+  }
+  
+  
 }

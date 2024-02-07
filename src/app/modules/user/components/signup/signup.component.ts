@@ -8,6 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { FormValidationService } from '../../services/form-validation.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -21,7 +22,8 @@ export class SignupComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private serv: FormValidationService
+    private serv: FormValidationService,
+    private router:Router
   ) {}
 
   ngOnInit(): void {
@@ -104,5 +106,8 @@ export class SignupComponent implements OnInit {
       console.log('otp send error',error);
       
     }
+  }
+  goHome(){
+    this.router.navigate([''])
   }
 }

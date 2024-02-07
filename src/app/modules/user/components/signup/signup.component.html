@@ -1,11 +1,13 @@
 <!-- signup.component.html -->
 
-<app-otp-verification *ngIf="otpComponent"></app-otp-verification>
-
+<div *ngIf="!otpComponent" class="w-screen h-screen flex justify-center items-center fixed">
+    <app-otp-verification ></app-otp-verification>
+</div>
 <nav>
+    
     <h2 class="logo">Customcraze creations</h2>
     <p>
-        <a class="home-button" href="#">Home</a>
+        <a class="home-button" (click)="goHome()">Home</a> | 
     </p>
 </nav>
 
