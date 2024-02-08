@@ -7,8 +7,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { FormValidationService } from '../../services/form-validation.service';
 import { Router } from '@angular/router';
+import { FormValidationService } from 'src/app/modules/user/services/form-validation.service';
 
 @Component({
   selector: 'app-signup',

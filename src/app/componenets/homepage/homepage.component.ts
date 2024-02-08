@@ -44,15 +44,8 @@ export class HomepageComponent {
     // Change background image every 5 seconds
     setInterval(changeBackgroundImage, 5000);
   }
-  showDiv: Boolean = false;
-
-  onclick() {
-    this.showDiv = !this.showDiv;
-    console.log('btn  clicked!', this.showDiv);
-  }
+  
   goSignup(){
     this.router.navigate(['signup']);
   }
-  
-  
 }
