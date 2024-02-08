@@ -19,3 +19,4 @@ describe('OtpVerificationComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

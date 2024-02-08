@@ -1,72 +1,127 @@
 <!-- signup.component.html -->
 
-<div *ngIf="!otpComponent" class="w-screen h-screen flex justify-center items-center fixed">
-    <app-otp-verification ></app-otp-verification>
+<div
+  *ngIf="otpComponent"
+  class="w-screen h-screen flex justify-center items-center fixed"
+>
+  <app-otp-verification></app-otp-verification>
 </div>
-<nav>
-    
-    <h2 class="logo">Customcraze creations</h2>
-    <p>
-        <a class="home-button" (click)="goHome()">Home</a> | 
-    </p>
+<nav *ngIf="hideSignup">
+  <h2 class="logo">Customcraze creations</h2>
+  <p><a class="home-button" (click)="goHome()">Home</a> |</p>
 </nav>
 
 <div class="background-image">
-    <img src="../../../../../assets/images/pexels-photo-1045541.webp" alt="" />
+  <img src="../../../../../assets/images/pexels-photo-1045541.webp" alt="" />
 </div>
 
-<div class="container">
-    <div class="signup-container">
-        <h2>Register Now</h2>
-        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-            <div>
-                <input type="text" formControlName="username" placeholder="Username" />
-                <div *ngIf="getFormControl('username').errors && (getFormControl('username').dirty || getFormControl('username').touched)">
-                    <div *ngIf="getFormControl('username').hasError('required')">Username is required</div>
-                    <div *ngIf="getFormControl('username').hasError('pattern')">Invalid username format</div>
-                </div>
-            </div>
-            
-            <div>
-                <input type="email" formControlName="email" placeholder="Email" />
-                <div *ngIf="getFormControl('email').errors && (getFormControl('email').dirty || getFormControl('email').touched)">
-                    <div *ngIf="getFormControl('email').hasError('required')">Email is required</div>
-                    <div *ngIf="getFormControl('email').hasError('email')">Invalid email format</div>
-                </div>
-            </div>
-            
-        
+<div class="container" *ngIf="hideSignup">
+  <div class="signup-container">
+    <h2>Register Now</h2>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <div>
+        <input type="text" formControlName="username" placeholder="Username" />
+        <div
+          *ngIf="
+            getFormControl('username').errors &&
+            (getFormControl('username').dirty ||
+              getFormControl('username').touched)
+          "
+        >
+          <div *ngIf="getFormControl('username').hasError('required')">
+            Username is required
+          </div>
+          <div *ngIf="getFormControl('username').hasError('pattern')">
+            Invalid username format
+          </div>
+        </div>
+      </div>
 
-<div>
-    <input type="tel" formControlName="mobileNumber" placeholder="Mobile Number" />
-       <div *ngIf="getFormControl('mobileNumber').errors && (getFormControl('mobileNumber').dirty || getFormControl('mobileNumber').touched)">
-        <div *ngIf="getFormControl('mobileNumber').hasError('required')">Mobile Number is required</div>
-        <div *ngIf="getFormControl('mobileNumber').hasError('pattern')">Invalid mobile number format</div>
-    </div>
-</div>
+      <div>
+        <input type="email" formControlName="email" placeholder="Email" />
+        <div
+          *ngIf="
+            getFormControl('email').errors &&
+            (getFormControl('email').dirty || getFormControl('email').touched)
+          "
+        >
+          <div *ngIf="getFormControl('email').hasError('required')">
+            Email is required
+          </div>
+          <div *ngIf="getFormControl('email').hasError('email')">
+            Invalid email format
+          </div>
+        </div>
+      </div>
 
+      <div>
+        <input
+          type="tel"
+          formControlName="mobileNumber"
+          placeholder="Mobile Number"
+        />
+        <div
+          *ngIf="
+            getFormControl('mobileNumber').errors &&
+            (getFormControl('mobileNumber').dirty ||
+              getFormControl('mobileNumber').touched)
+          "
+        >
+          <div *ngIf="getFormControl('mobileNumber').hasError('required')">
+            Mobile Number is required
+          </div>
+          <div *ngIf="getFormControl('mobileNumber').hasError('pattern')">
+            Invalid mobile number format
+          </div>
+        </div>
+      </div>
 
+      <div>
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Password"
+        />
+        <div
+          *ngIf="
+            getFormControl('password').errors &&
+            (getFormControl('password').dirty ||
+              getFormControl('password').touched)
+          "
+        >
+          <div *ngIf="getFormControl('password').hasError('required')">
+            Password is required
+          </div>
+          <div *ngIf="getFormControl('password').hasError('pattern')">
+            Invalid password format
+          </div>
+        </div>
+      </div>
 
+      <div>
+        <input
+          type="password"
+          formControlName="confirmPassword"
+          placeholder="Confirm Password"
+        />
+        <div
+          *ngIf="
+            getFormControl('confirmPassword').errors &&
+            (getFormControl('confirmPassword').dirty ||
+              getFormControl('confirmPassword').touched)
+          "
+        >
+          <div *ngIf="getFormControl('confirmPassword').hasError('required')">
+            Confirm Password is required
+          </div>
+          <div *ngIf="getFormControl('confirmPassword').hasError('mismatch')">
+            Passwords don't match
+          </div>
+        </div>
+      </div>
 
-            <div>
-                <input type="password" formControlName="password" placeholder="Password" />
-                <div *ngIf="getFormControl('password').errors && (getFormControl('password').dirty || getFormControl('password').touched)">
-                    <div *ngIf="getFormControl('password').hasError('required')">Password is required</div>
-                    <div *ngIf="getFormControl('password').hasError('pattern')">Invalid password format</div>
-                </div>
-            </div>
-            
-            <div>
-                <input type="password" formControlName="confirmPassword" placeholder="Confirm Password" />
-                <div *ngIf="getFormControl('confirmPassword').errors && (getFormControl('confirmPassword').dirty || getFormControl('confirmPassword').touched)">
-                  <div *ngIf="getFormControl('confirmPassword').hasError('required')">Confirm Password is required</div>
-                  <div *ngIf="getFormControl('confirmPassword').hasError('mismatch')">Passwords don't match</div>
-                </div>
-              </div>
-              
-              
-            <button type="submit" [disabled]="!signupForm.valid">Sign Up</button>
-        </form>
-        <p>Already have an account? <a href="#" style="color: #886f4f">Login</a></p>
-    </div>
+      <button type="submit" [disabled]="!signupForm.valid">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="#" style="color: #886f4f">Login</a></p>
+  </div>
 </div>

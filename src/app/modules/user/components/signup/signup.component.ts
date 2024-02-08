@@ -18,6 +18,7 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
   signupForm!: FormGroup;
   otpComponent:Boolean=false;
+  hideSignup:Boolean=true;
 
   constructor(
     private fb: FormBuilder,
@@ -86,6 +87,7 @@ export class SignupComponent implements OnInit {
           next: (response) => {
             console.log(response);
             this.otpComponent=true
+            this.hideSignup=false;
           },
           error: (error) => {
             console.error(error);

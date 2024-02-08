@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { UserModule } from './modules/user/user.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { MainhomeapgeComponent } from './mainhomeapge/mainhomeapge.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, MainhomeapgeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
