@@ -10,13 +10,19 @@ import { OtpVerificationComponent } from './componenets/signup/otp-verification/
 import { SignupComponent } from './componenets/signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavBarComponent } from './componenets/homepage/nav-bar/nav-bar.component';
+import { LoginPageComponent } from './componenets/login-page/login-page.component';
+import { AboutPageComponent } from './componenets/about-page/about-page.component';
+import { ContactComponent } from './componenets/contact_page/contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OtpVerificationComponent,
     SignupComponent,
-    NavBarComponent
+    NavBarComponent,
+    LoginPageComponent,
+    ContactComponent,
+    AboutPageComponent
   ],
   imports: [
     BrowserModule,

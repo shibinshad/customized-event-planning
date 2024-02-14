@@ -81,6 +81,7 @@ export class SignupComponent implements OnInit {
     try{
       const formvalues = this.signupForm.value
       console.log('form',formvalues);
+      this.otpComponent=true
       
       if (this.signupForm.valid) {
         this.serv.getApi(formvalues).subscribe({

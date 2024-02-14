@@ -11,10 +11,12 @@ export class FormValidationService {
   constructor(private http: HttpClient) {}
 
   api = 'http://localhost:3000/user/signup';
+  otpVerify = 'http://localhost:3000/user/otp-verify';
 
   getApi(data: any): Observable<any> {
-    
-    
-    return this.http.post<any>(this.api, data);
+    return this.http.post(this.api, data);
+  }
+  verifyOtp(data:any):Observable<any>{
+    return this.http.post(this.otpVerify,data)
   }
 }

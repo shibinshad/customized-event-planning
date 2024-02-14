@@ -20,6 +20,7 @@ export class HomepageComponent {
       'https://images.pexels.com/photos/17119951/pexels-photo-17119951/free-photo-of-close-up-of-an-elegant-table-setting.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/18897196/pexels-photo-18897196/free-photo-of-indian-wedding-ceremony-with-petals.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/2399097/pexels-photo-2399097.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/4564948/pexels-photo-4564948.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     ];
 
     let index = 0;

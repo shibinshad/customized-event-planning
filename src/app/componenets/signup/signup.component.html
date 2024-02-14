@@ -4,7 +4,7 @@
   *ngIf="otpComponent"
   class="w-screen h-screen flex justify-center items-center fixed"
 >
-  <app-otp-verification></app-otp-verification>
+  <app-otp-verification *ngIf="otpComponent"></app-otp-verification>
 </div>
 <!-- <nav *ngIf="hideSignup">
   <h2 class="logo">Customcraze creations</h2>
