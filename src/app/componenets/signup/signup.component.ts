@@ -1,6 +1,6 @@
 // signup.component.ts
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -17,14 +17,15 @@ import { FormValidationService } from 'src/app/modules/user/services/form-valida
 })
 export class SignupComponent implements OnInit {
   signupForm!: FormGroup;
-  otpComponent:Boolean=false;
-  hideSignup:Boolean=true;
+  otpComponent: Boolean = false;
+  hideSignup: Boolean = true;
+  lin:any
 
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
     private serv: FormValidationService,
-    private router:Router
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -70,7 +71,7 @@ export class SignupComponent implements OnInit {
   }
 
   get form() {
-    return this.signupForm.controls
+    return this.signupForm.controls;
   }
 
   getFormControl(name: string) {
@@ -78,39 +79,40 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
-    try{
-      const formvalues = this.signupForm.value
-      console.log('form',formvalues);
-      this.otpComponent=true
-      
+    try {
+      const formvalues = this.signupForm.value;
+      console.log('form', formvalues);
+
       if (this.signupForm.valid) {
         this.serv.getApi(formvalues).subscribe({
           next: (response) => {
-            console.log(response);
-            this.otpComponent=true
-            this.hideSignup=false;
+            if(response.success){
+              console.log(response);
+            this.lin= response.data
+            this.otpComponent = true;
+            this.hideSignup = false;
+            }
           },
           error: (error) => {
             console.error(error);
           },
         });
-        
       } else {
         console.log(
           'Password pattern error:',
           this.signupForm.get('password')?.hasError('pattern')
         );
-  
+
         if (this.signupForm.get('password')?.hasError('pattern')) {
           console.error('Password has a pattern error');
         }
       }
-    } catch (error){
-      console.log('otp send error',error);
-      
+    } catch (error) {
+      console.log('otp send error', error);
     }
   }
-  goHome(){
-    this.router.navigate([''])
+
+  goHome() {
+    this.router.navigate(['']);
   }
 }

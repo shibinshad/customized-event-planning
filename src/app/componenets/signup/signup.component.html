@@ -4,7 +4,7 @@
   *ngIf="otpComponent"
   class="w-screen h-screen flex justify-center items-center fixed"
 >
-  <app-otp-verification *ngIf="otpComponent"></app-otp-verification>
+  <app-otp-verification [data]="lin"></app-otp-verification>
 </div>
 <!-- <nav *ngIf="hideSignup">
   <h2 class="logo">Customcraze creations</h2>
@@ -122,6 +122,6 @@
 
       <button type="submit" [disabled]="!signupForm.valid">Sign Up</button>
     </form>
-    <p>Already have an account? <a href="#" style="color: #886f4f">Login</a></p>
+    <p>Already have an account? <a  href="login" style="color: #886f4f">Login</a></p>
   </div>
 </div>

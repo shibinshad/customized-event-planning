@@ -3,19 +3,16 @@
     <div class="w-full max-w-md">
       <div class="bg-white rounded-lg shadow-md p-6 transition-transform duration-300 transform-gpu hover:-translate-y-1 otp-container">
         <h2 class="text-center text-2xl font-bold mb-4 text-[#886f4f]">Enter OTP</h2>
-        <form class="otp-form">
           <div class="flex justify-center mb-6">
-            <input type="text" class="form-control otp-input w-12 h-12 text-4xl border rounded-lg text-center" id="otp1" (input)="autonext($event)" >
-            <input type="text" class="form-control otp-input w-12 h-12 text-4xl border rounded-lg text-center" id="otp2" (input)="autonext($event)" >
-            <input type="text" class="form-control otp-input w-12 h-12 text-4xl border rounded-lg text-center" id="otp3" (input)="autonext($event)" >
-            <input type="text" class="form-control otp-input w-12 h-12 text-4xl border rounded-lg text-center" id="otp4" (input)="autonext($event)" >
-            <input type="text" class="form-control otp-input w-12 h-12 text-4xl border rounded-lg text-center" id="otp5" (input)="autonext($event)" >
-            <input type="text" class="form-control otp-input w-12 h-12 text-4xl border rounded-lg text-center" id="otp6" (input)="autonext($event)" >
+            <input type="text" class="form-control otp-input w-12 h-12 text-4xl border rounded-lg text-center" [(ngModel)]="otp[0]" id="otp1" (input)="autonext($event)" >
+            <input type="text" class="form-control otp-input w-12 h-12 text-4xl border rounded-lg text-center" [(ngModel)]="otp[1]" id="otp2" (input)="autonext($event)" >
+            <input type="text" class="form-control otp-input w-12 h-12 text-4xl border rounded-lg text-center" [(ngModel)]="otp[2]" id="otp3" (input)="autonext($event)" >
+            <input type="text" class="form-control otp-input w-12 h-12 text-4xl border rounded-lg text-center" [(ngModel)]="otp[3]" id="otp4" (input)="autonext($event)" >
+            <input type="text" class="form-control otp-input w-12 h-12 text-4xl border rounded-lg text-center" [(ngModel)]="otp[4]" id="otp5" (input)="autonext($event)" >
+            <input type="text" class="form-control otp-input w-12 h-12 text-4xl border rounded-lg text-center" [(ngModel)]="otp[5]" id="otp6" (input)="autonext($event)" >
           </div>
-          <button  class="block w-full bg-[#886f4f] hover:bg-[#6a5232] text-white font-bold py-2 px-4 rounded">Verify OTP</button>
-        </form>
+          <button  class="block w-full bg-[#886f4f] hover:bg-[#6a5232] text-white font-bold py-2 px-4 rounded" (click)="onVerify()"> OTP</button>
       </div>
     </div>
   </div>
 </div>
-<!-- (click)="onVerify()" -->

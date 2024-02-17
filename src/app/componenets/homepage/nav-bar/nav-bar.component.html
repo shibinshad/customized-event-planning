@@ -21,17 +21,17 @@
 
   <!-- dropdown ------------------------- -->
   <div *ngIf="showDiv"
-    class="w-full absolute translate-y-36 z-10 custom:hidden"
+    class="w-full absolute translate-y-[155px] z-10 custom:hidden"
   >
     <div  class="  bg-white ">
       <ul class="text-end p-3 border mt-8 space-y-2">
         <li class="hover:-translate-y-1 transition text-lg">Service</li>
         <li class="hover:-translate-y-1 transition text-lg">Event Type</li>
         <li [routerLink]="'/contact'" class="hover:-translate-y-1 transition text-lg">Contact</li>
-        <li [routerLink]="'/about'" class="hover:-translate-y-1 transition text-lg">About</li>
+        <li (click)="goAbout()" class="hover:-translate-y-1 transition text-lg">About</li>
         <li [routerLink]="'/'" class="  hover:-translate-y-1 transition text-lg">Home</li>
-        <li [routerLink]="'/login'" class="hover:-translate-y-1 transition text-lg">Login</li>
-        <li [routerLink]="'/signup'"  class="hover:-translate-y-1 transition text-lg">Signup</li>
+        <li (click)="goLogin()" class="hover:-translate-y-1 transition text-lg">Login</li>
+        <li (click)="goSignup()"  class="hover:-translate-y-1 transition text-lg">Signup</li>
       </ul>
     </div>
   </div>
