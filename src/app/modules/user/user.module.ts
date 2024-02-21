@@ -5,10 +5,12 @@ import { FormValidationService } from './services/form-validation.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UserHomeComponent } from './components/user-home/user-home.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { userRoutingModule } from './user_route.module';
 
 @NgModule({
-  declarations: [ HomepageComponent, UserHomeComponent],
-  imports: [ReactiveFormsModule,CommonModule,],
+  declarations: [ HomepageComponent, UserHomeComponent, ProfileComponent],
+  imports: [ReactiveFormsModule,CommonModule,userRoutingModule],
   providers: [FormValidationService,],
   exports: [ HomepageComponent]
 })

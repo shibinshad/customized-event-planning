@@ -11,7 +11,9 @@ const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'contact', component: ContactComponent },
-  {path:'about',component:AboutPageComponent}
+  {path:'about',component:AboutPageComponent},
+  {path:'admin',loadChildren:()=>import('./modules/admin/admin.module').then((e)=>e.Adminmodule)},
+  {path:'user',loadChildren:()=>import('./modules/user/user.module').then((e)=>e.UserModule)}
 ];
 
 @NgModule({

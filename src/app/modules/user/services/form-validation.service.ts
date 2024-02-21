@@ -10,14 +10,17 @@ import { Observable } from 'rxjs';
 export class FormValidationService {
   constructor(private http: HttpClient) {}
 
-  api = 'http://localhost:3000/user/signup';
-  otpVerify = 'http://localhost:3000/user/verify-otp';
+  api = 'http://localhost:3000/user';
 
   getApi(data: any): Observable<any> {
-    return this.http.post(this.api, data);
+    return this.http.post(`${this.api}/signup`, data);
   }
   verifyOtp(data:any):Observable<any>{
-    return this.http.post(this.otpVerify,data)
+    return this.http.post(`${this.api}/verify-otp`,data)
   }
+  profile(data:any):Observable<any>{
+    return this.http.post(`${this.api}/profile`,data)
+  }
+  
   
 }

@@ -14,6 +14,8 @@ import { LoginPageComponent } from './componenets/login-page/login-page.componen
 import { AboutPageComponent } from './componenets/about-page/about-page.component';
 import { ContactComponent } from './componenets/contact_page/contact.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,8 @@ import { ContactComponent } from './componenets/contact_page/contact.component';
     NavBarComponent,
     LoginPageComponent,
     ContactComponent,
-    AboutPageComponent
+    AboutPageComponent,
+    
   ],
   imports: [
     BrowserModule,
