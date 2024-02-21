@@ -40,7 +40,7 @@ export class HomepageComponent {
     };
 
     // Set initial background image
-    // changeBackgroundImage();
+    changeBackgroundImage();
 
     // Change background image every 5 seconds
     setInterval(changeBackgroundImage, 5000);

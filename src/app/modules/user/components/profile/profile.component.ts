@@ -28,7 +28,6 @@ export class ProfileComponent implements OnInit {
   }
 
   onSubmit(): void {
-    // Handle form submission here
     console.log(this.profileForm.value);
     this.service.profile(this.profileForm.value).subscribe((res) => {
       alert('Profile Updated Successfully');

@@ -13,6 +13,7 @@ import { NavBarComponent } from './componenets/homepage/nav-bar/nav-bar.componen
 import { LoginPageComponent } from './componenets/login-page/login-page.component';
 import { AboutPageComponent } from './componenets/about-page/about-page.component';
 import { ContactComponent } from './componenets/contact_page/contact.component';
+import { ServicePageComponent } from './componenets/service-page/service-page.component';
 
 
 
@@ -25,6 +26,7 @@ import { ContactComponent } from './componenets/contact_page/contact.component';
     LoginPageComponent,
     ContactComponent,
     AboutPageComponent,
+    ServicePageComponent,
     
   ],
   imports: [
@@ -34,7 +36,7 @@ import { ContactComponent } from './componenets/contact_page/contact.component';
     HttpClientModule,
     RouterModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

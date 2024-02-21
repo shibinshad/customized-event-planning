@@ -13,15 +13,7 @@ export class AppComponent {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
-        this.isAdminRoute = this.router.url.startsWith('/admin'); // Adjust path as needed
+        this.isAdminRoute = this.router.url.startsWith('/admin'); 
       });
   }
-
-
-
-
-
-
-
-
 }

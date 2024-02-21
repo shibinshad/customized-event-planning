@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormValidationService } from 'src/app/modules/user/services/form-validation.service';
+import { CommonService } from 'src/app/service/common.service';
 
 @Component({
   selector: 'app-otp-verification',
@@ -13,7 +13,7 @@ export class OtpVerificationComponent {
 
   otp=['']
 
-  constructor(private serv: FormValidationService ,private router:Router) {}
+  constructor(private serv:  CommonService,private router:Router) {}
 
   autonext(event: any) {
     const OtpInput = event.target;

@@ -8,7 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FormValidationService } from 'src/app/modules/user/services/form-validation.service';
+import { CommonService } from 'src/app/service/common.service';
 
 @Component({
   selector: 'app-signup',
@@ -24,7 +24,7 @@ export class SignupComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private serv: FormValidationService,
+    private serv: CommonService,
     private router: Router
   ) {}
 
@@ -61,7 +61,7 @@ export class SignupComponent implements OnInit {
   matchPasswords(control: AbstractControl) {
     const passwordControl = this.signupForm?.get('password');
     if (!passwordControl) {
-      return null; // or handle the error appropriately
+      return null; 
     }
 
     const password = passwordControl.value;

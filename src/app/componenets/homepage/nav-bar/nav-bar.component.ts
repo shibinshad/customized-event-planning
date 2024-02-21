@@ -9,7 +9,14 @@ import { Router } from '@angular/router';
 export class NavBarComponent {
   constructor(private router: Router) {}
 
+  showEventType:Boolean=false;
+
+  showEventTypeFn(){
+    this.showEventType=!this.showEventType
+  }
+
   showDiv: Boolean = false;
+  
 
   onclick() {
     this.showDiv = !this.showDiv;
@@ -28,4 +35,5 @@ export class NavBarComponent {
     this.router.navigate(['/about']);
     this.showDiv=false;
   }
+  
 }

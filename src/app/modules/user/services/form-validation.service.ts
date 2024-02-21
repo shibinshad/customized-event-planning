@@ -12,12 +12,7 @@ export class FormValidationService {
 
   api = 'http://localhost:3000/user';
 
-  getApi(data: any): Observable<any> {
-    return this.http.post(`${this.api}/signup`, data);
-  }
-  verifyOtp(data:any):Observable<any>{
-    return this.http.post(`${this.api}/verify-otp`,data)
-  }
+  
   profile(data:any):Observable<any>{
     return this.http.post(`${this.api}/profile`,data)
   }

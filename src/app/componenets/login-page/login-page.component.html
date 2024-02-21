@@ -1,27 +1,23 @@
 <div class="container mx-auto bg-cover" style="background-image: url('../../../assets/images/pexels-photo-1045541.webp');">
-    <div class="flex items-center justify-center h-screen">
-      <div class="w-full max-w-xs">
-       
-        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 opacity-80">
-            <div class="text-center">
-                <h2 class="text-xl text-[#5f4524] mb-3">Login</h2>
-              </div>
-          <div class="mb-4">
-            
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username-or-email" type="text" placeholder="Enter username or email">
-          </div>
-          <div class="mb-4">
-            
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-1 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Enter password">
-          </div>
-          <div class="flex items-center justify-center">
-            <input class="bg-[#886f4f] hover:bg-[#5f4524] text-white  py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="Log In">
-          </div>
-          <div class="text-center">
-            <a href="#" class="text-[#886f4f] hover:text-[#5f4524] no-underline">Forgot password?</a>
-          </div>
-        </form>
-       
-      </div>
+  <div class="flex items-center justify-center h-screen">
+    <div class="w-full max-w-xs">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 opacity-80">
+        <div class="text-center">
+          <h2 class="text-xl text-[#5f4524] mb-3">Login</h2>
+        </div>
+        <div class="mb-4">
+          <input formControlName="usernameOrEmail" type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter username or email">
+        </div>
+        <div class="mb-4">
+          <input formControlName="password" type="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-1 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter password">
+        </div>
+        <div class="flex items-center justify-center">
+          <button type="submit" class="bg-[#886f4f] hover:bg-[#5f4524] text-white  py-2 px-4 rounded focus:outline-none focus:shadow-outline">Log In</button>
+        </div>
+        <div class="text-center">
+          <a href="#" class="text-[#886f4f] hover:text-[#5f4524] no-underline">Forgot password?</a>
+        </div>
+      </form>
     </div>
   </div>
+</div>
