@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomepageComponent } from './componenets/homepage/homepage.component';
-import { SignupComponent } from './componenets/signup/signup.component';
-import { LoginPageComponent } from './componenets/login-page/login-page.component';
-import { ContactComponent } from './componenets/contact_page/contact.component';
-import { AboutPageComponent } from './componenets/about-page/about-page.component';
-import { ServicePageComponent } from './componenets/service-page/service-page.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { ContactComponent } from './components/contact_page/contact.component';
+import { AboutPageComponent } from './components/about-page/about-page.component';
+import { WeddingComponent } from './components/wedding/wedding.component';
 
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutPageComponent },
-  {path:'service',component:ServicePageComponent},
+  { path: 'wedding', component: WeddingComponent },
   {
     path: 'admin',
     loadChildren: () =>

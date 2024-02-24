@@ -1,9 +1,8 @@
-
 <div
   *ngIf="otpComponent"
-  class="w-screen h-screen flex justify-center items-center fixed"
+  class="w-screen h-full flex justify-center items-center fixed"
 >
-  <app-otp-verification [data]="lin"></app-otp-verification>
+  <app-otp-verification [role]="role" [data]="lin"></app-otp-verification>
 </div>
 <!-- <nav *ngIf="hideSignup">
   <h2 class="logo">Customcraze creations</h2>
@@ -119,8 +118,50 @@
         </div>
       </div>
 
-      <button type="submit" [disabled]="!signupForm.valid">Sign Up</button>
-    </form>
-    <p>Already have an account? <a  href="login" style="color: #886f4f">Login</a></p>
+      <!-- component -->
+      <!-- Add this HTML code to your page -->
+      <!-- <div class="flex items-center space-x-4">
+        <p class="font-bold text-gray-700 mr-2">Role:</p>
+        <div class="flex items-center space-x-4">
+          <label class="flex items-center">
+            <input
+              [(ngModel)]="role"
+              type="radio"
+              name="role"
+              class="form-radio h-4 w-4 text-blue-600"
+              value="user"
+            />
+            <span class="ml-1 text-sm text-gray-900 font-semibold">User</span>
+          </label>
+          <label class="flex items-center">
+            <input
+              [(ngModel)]="role"
+              type="radio"
+              name="role"
+              value="admin"
+              class="form-radio h-4 w-4 text-blue-600"
+            />
+            <span class="ml-1 text-sm text-gray-900 font-semibold">Agency</span>
+          </label>
+        </div>
+      </div> -->
+        <label>
+          <input type="radio" name="role" value="user" formControlName="role" />
+          User
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="role"
+            value="agency"
+            formControlName="role"
+          />
+          Agency
+        </label>
+        <button type="submit" [disabled]="!signupForm.valid">Sign Up</button>
+      </form>
+    <p>
+      Already have an account? <a href="login" style="color: #886f4f">Login</a>
+    </p>
   </div>
 </div>

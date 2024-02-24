@@ -4,6 +4,7 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
+  FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
@@ -19,30 +20,36 @@ export class SignupComponent implements OnInit {
   signupForm!: FormGroup;
   otpComponent: Boolean = false;
   hideSignup: Boolean = true;
-  lin:any
+  lin: any;
+  role: string = '';
+  myForm!: FormGroup;
+
+  signupForms = new FormGroup({
+    role: new FormControl('')
+  });
 
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
     private serv: CommonService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
       username: [
-        '',
+        'shibu',
         [Validators.required, Validators.pattern(/^[a-zA-Z0-9_-]{3,16}$/)],
       ],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['shibu@gmail.com', [Validators.required, Validators.email]],
 
       mobileNumber: [
-        '',
+        '8606084967',
         [Validators.required, Validators.pattern('^[0-9]{10}$')],
       ],
 
       password: [
-        '',
+        'Shaheer@2',
         [
           Validators.required,
           Validators.pattern(
@@ -52,16 +59,17 @@ export class SignupComponent implements OnInit {
       ],
 
       confirmPassword: [
-        '',
+        'Shaheer@2',
         [Validators.required, this.matchPasswords.bind(this)],
       ],
+      role:['',]
     });
   }
 
   matchPasswords(control: AbstractControl) {
     const passwordControl = this.signupForm?.get('password');
     if (!passwordControl) {
-      return null; 
+      return null;
     }
 
     const password = passwordControl.value;
@@ -86,11 +94,13 @@ export class SignupComponent implements OnInit {
       if (this.signupForm.valid) {
         this.serv.getApi(formvalues).subscribe({
           next: (response) => {
-            if(response.success){
+            if (response.success) {
               console.log(response);
-            this.lin= response.data
-            this.otpComponent = true;
-            this.hideSignup = false;
+              this.lin = response.data;
+              this.otpComponent = true;
+              this.hideSignup = false;
+              // const targetRoute = this.role === 'user' ? '/' : '/admin/home';
+              // this.router.navigate([targetRoute]);
             }
           },
           error: (error) => {

@@ -6,14 +6,14 @@ import { AppComponent } from './app.component';
 import { UserModule } from './modules/user/user.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { OtpVerificationComponent } from './componenets/signup/otp-verification/otp-verification.component';
-import { SignupComponent } from './componenets/signup/signup.component';
+import { OtpVerificationComponent } from './components/signup/otp-verification/otp-verification.component';
+import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NavBarComponent } from './componenets/homepage/nav-bar/nav-bar.component';
-import { LoginPageComponent } from './componenets/login-page/login-page.component';
-import { AboutPageComponent } from './componenets/about-page/about-page.component';
-import { ContactComponent } from './componenets/contact_page/contact.component';
-import { ServicePageComponent } from './componenets/service-page/service-page.component';
+import { NavBarComponent } from './components/homepage/nav-bar/nav-bar.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { AboutPageComponent } from './components/about-page/about-page.component';
+import { ContactComponent } from './components/contact_page/contact.component';
+import { WeddingComponent } from './components/wedding/wedding.component';
 
 
 
@@ -26,7 +26,7 @@ import { ServicePageComponent } from './componenets/service-page/service-page.co
     LoginPageComponent,
     ContactComponent,
     AboutPageComponent,
-    ServicePageComponent,
+    WeddingComponent,
     
   ],
   imports: [
