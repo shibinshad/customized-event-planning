@@ -15,9 +15,9 @@ const routes: Routes = [
   { path: 'about', component: AboutPageComponent },
   { path: 'wedding', component: WeddingComponent },
   {
-    path: 'admin',
+    path: 'agency',
     loadChildren: () =>
-      import('./modules/admin/admin.module').then((e) => e.Adminmodule),
+      import('./modules/agency/agency.module').then((e) => e.AgencyModule),
   },
   {
     path: 'user',

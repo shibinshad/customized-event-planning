@@ -10,7 +10,7 @@ import { CommonService } from 'src/app/service/common.service';
 export class OtpVerificationComponent {
   OtpInput: string = '';
   @Input() data: any;
-  @Input() role: any;
+  role: any;
 
   otp = ['']
 
@@ -42,8 +42,12 @@ export class OtpVerificationComponent {
         .subscribe((e) => {
           console.log('verify otp');
           console.log(e);
+          localStorage.setItem('role',e.role)
+          
           if (e.success) {
+            this.role=localStorage.getItem('role')
             console.log('inside if e.success');
+            // this.router.navigate([`${this.role}/home`])
             if (this.role == 'admin') {
               console.log('admin');
               this.router.navigate(['/admin/home'])

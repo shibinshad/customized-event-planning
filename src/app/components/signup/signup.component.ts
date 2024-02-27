@@ -25,7 +25,7 @@ export class SignupComponent implements OnInit {
   myForm!: FormGroup;
 
   signupForms = new FormGroup({
-    role: new FormControl('')
+    role: new FormControl(''),
   });
 
   constructor(
@@ -33,23 +33,22 @@ export class SignupComponent implements OnInit {
     private http: HttpClient,
     private serv: CommonService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
       username: [
-        'shibu',
+        '',
         [Validators.required, Validators.pattern(/^[a-zA-Z0-9_-]{3,16}$/)],
       ],
-      email: ['shibu@gmail.com', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
 
       mobileNumber: [
-        '8606084967',
+        '',
         [Validators.required, Validators.pattern('^[0-9]{10}$')],
       ],
 
-      password: [
-        'Shaheer@2',
+      password: ['',
         [
           Validators.required,
           Validators.pattern(
@@ -58,11 +57,8 @@ export class SignupComponent implements OnInit {
         ],
       ],
 
-      confirmPassword: [
-        'Shaheer@2',
-        [Validators.required, this.matchPasswords.bind(this)],
-      ],
-      role:['',]
+      confirmPassword: ['',[Validators.required, this.matchPasswords.bind(this)]],
+      role: [''],
     });
   }
 
