@@ -1,81 +1,75 @@
   
     <!-- <div class="bg-cover bg-center min-h-screen absolute top-0 left-0 w-full" style="background-image: url('../../../../assets/images/pexels-photo-1268877.jpeg')"></div> -->
   
-        
+    <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      <h1 class="font-bold text-center text-2xl mb-8 col-span-full">Add Services</h1>
+      
+      <!-- Card 1 -->
+      <div [routerLink]="'/agency/locationForm'" class="group relative overflow-hidden rounded-lg shadow-md">
+        <img src="../../../../assets/images/ipad-map-tablet-internet-38271.jpeg" alt="Card Image" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-opacity duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <img class="w-14" src="../../../../assets/images/plus.png" alt="">
+        </div>
+        <div class="px-6 py-4">
+          <h2 class="text-lg font-bold text-gray-800 group-hover:text-white transition-colors duration-300">
+            Location
+          </h2>
+          <p class="text-gray-600 group-hover:text-white transition-colors duration-300">
+            Add Location Details
+          </p>
+        </div>
+      </div>
     
-    <div class="container mx-auto">
-      <h1 class="font-bold text-center text-2xl mb-8">Add Services</h1>
-      <div class="flex justify-evenly">
-        <!-- Card 1 -->
-        <div [routerLink]="'/agency/locationForm'" class="group relative overflow-hidden rounded-lg shadow-md" style="width: 300px;">
-          <img src="../../../../assets/images/ipad-map-tablet-internet-38271.jpeg" alt="Card Image" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
-          <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-opacity duration-500"></div>
-          <div class="absolute inset-0 flex items-center justify-center">
-            <img class="w-14" src="../../../../assets/images/plus.png" alt="">
-          </div>
-          <div class="px-6 py-4">
-            <h2 class="text-lg font-bold text-gray-800 group-hover:text-white transition-colors duration-300">
-              Location
-            </h2>
-            <p class="text-gray-600 group-hover:text-white transition-colors duration-300">
-              Add Location Details
-            </p>
-          </div>
+      <!-- Card 2 -->
+      <div [routerLink]="'/agency/cateringForm'" class="group relative overflow-hidden rounded-lg shadow-md">
+        <img src="../../../../assets/images/serving.webp" alt="Card Image" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-opacity duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <img class="w-14" src="../../../../assets/images/plus.png" alt="">
         </div>
-  
-        <!-- Card 2 -->
-        <div [routerLink]="'/agency/cateringForm'" class="group relative overflow-hidden rounded-lg shadow-md" style="width: 300px;">
-          <img src="../../../../assets/images/serving.webp" alt="Card Image" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
-          <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-opacity duration-500"></div>
-          <div class="absolute inset-0 flex items-center justify-center">
-            <img class="w-14" src="../../../../assets/images/plus.png" alt="">
-
-          </div>
-          <div class="px-6 py-4">
-            <h2 class="text-lg font-bold text-gray-800 group-hover:text-white transition-colors duration-300">
-              Catering
-            </h2>
-            <p class="text-gray-600 group-hover:text-white transition-colors duration-300">
-                Add Catering Details
-
-            </p>
-          </div>
+        <div class="px-6 py-4">
+          <h2 class="text-lg font-bold text-gray-800 group-hover:text-white transition-colors duration-300">
+            Catering
+          </h2>
+          <p class="text-gray-600 group-hover:text-white transition-colors duration-300">
+            Add Catering Details
+          </p>
         </div>
-  
-        <!-- Card 3 -->
-        <div [routerLink]="'/agency/mediaForm'" class="group relative overflow-hidden rounded-lg shadow-md" style="width: 300px;">
-          <img src="../../../../assets/images/pexels-photo-9620518.jpeg" alt="Card Image" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
-          <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-opacity duration-500"></div>
-          <div class="absolute inset-0 flex items-center justify-center">
-            <img class="w-14" src="../../../../assets/images/plus.png" alt="">
-
-          </div>
-          <div class="px-6 py-4">
-            <h2 class="text-lg font-bold text-gray-800 group-hover:text-white transition-colors duration-300">
-              Media
-            </h2> 
-            <p class="text-gray-600 group-hover:text-white transition-colors duration-300">
-                Add Media Details
-            </p>
-          </div>
+      </div>
+    
+      <!-- Card 3 -->
+      <div [routerLink]="'/agency/mediaForm'" class="group relative overflow-hidden rounded-lg shadow-md">
+        <img src="../../../../assets/images/pexels-photo-9620518.jpeg" alt="Card Image" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-opacity duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <img class="w-14" src="../../../../assets/images/plus.png" alt="">
         </div>
-  
-        <!-- Card 4 -->
-        <div [routerLink]="'/agency/decorationForm'"  class="group relative overflow-hidden rounded-lg shadow-md" style="width: 300px;">
-          <img src="../../../../assets/images/wedding-scen.webp" alt="Card Image" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
-          <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-opacity duration-500"></div>
-          <div class="absolute inset-0 flex items-center justify-center">
-            <img class="w-14" src="../../../../assets/images/plus.png" alt="">
-
-          </div>
-          <div class="px-6 py-4">
-            <h2 class="text-lg font-bold text-gray-800 group-hover:text-white transition-colors duration-300">
-              Decoration
-            </h2>
-            <p class="text-gray-600 group-hover:text-white transition-colors duration-300">
-                Add Decoration Details
-            </p>
-          </div>
+        <div class="px-6 py-4">
+          <h2 class="text-lg font-bold text-gray-800 group-hover:text-white transition-colors duration-300">
+            Media
+          </h2>
+          <p class="text-gray-600 group-hover:text-white transition-colors duration-300">
+            Add Media Details
+          </p>
+        </div>
+      </div>
+    
+      <!-- Card 4 -->
+      <div [routerLink]="'/agency/decorationForm'"  class="group relative overflow-hidden rounded-lg shadow-md">
+        <img src="../../../../assets/images/wedding-scen.webp" alt="Card Image" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-opacity duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <img class="w-14" src="../../../../assets/images/plus.png" alt="">
+        </div>
+        <div class="px-6 py-4">
+          <h2 class="text-lg font-bold text-gray-800 group-hover:text-white transition-colors duration-300">
+            Decoration
+          </h2>
+          <p class="text-gray-600 group-hover:text-white transition-colors duration-300">
+            Add Decoration Details
+          </p>
         </div>
       </div>
     </div>
+    

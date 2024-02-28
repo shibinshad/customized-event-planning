@@ -71,16 +71,18 @@ export class NavBarComponent {
   changeRoute(): void {
     switch (this.selectedEventType) {
       case 'Wedding':
+        console.log('wedding');
         this.router.navigate(['/wedding']);
         break;
       case 'Birthday':
+        console.log('birthday');
         this.router.navigate(['/birthday']);
         break;
       case 'Concert':
         this.router.navigate(['/concert']);
         break;
       case 'Meetings':
-        this.router.navigate(['/meetings']);
+        this.router.navigate(['/meeting']);
         break;
       default:
         // Handle default case

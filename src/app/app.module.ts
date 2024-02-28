@@ -14,6 +14,9 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { AboutPageComponent } from './components/about-page/about-page.component';
 import { ContactComponent } from './components/contact_page/contact.component';
 import { WeddingComponent } from './components/wedding/wedding.component';
+import { BirthdayComponent } from './components/birthday/birthday.component';
+import { ConcertComponent } from './components/concert/concert.component';
+import { MeetingComponent } from './components/meeting/meeting.component';
 
 
 
@@ -27,6 +30,9 @@ import { WeddingComponent } from './components/wedding/wedding.component';
     ContactComponent,
     AboutPageComponent,
     WeddingComponent,
+    BirthdayComponent,
+    ConcertComponent,
+    MeetingComponent,
     
   ],
   imports: [
