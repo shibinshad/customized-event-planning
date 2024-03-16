@@ -7,66 +7,53 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    
+  }
+  sub=false
+  ShowService: Boolean = false;
+  role = localStorage.getItem('role')
+  selectedEventType: string = '';
+  token :any;
+  
 
-  ShowService:Boolean=false;
-  selectedEventType: string=''
-
-
-  showService(){
-    this.ShowService=!this.ShowService
+  showService() {
+    this.ShowService = !this.ShowService;
   }
 
   showDiv: Boolean = false;
   
-
   onclick() {
     this.showDiv = !this.showDiv;
     console.log('btn  clicked!', this.showDiv);
-    
   }
-  goSignup(){
+  goSignup() {
     this.router.navigate(['/signup']);
-    this.showDiv=false;
+    this.showDiv = false;
   }
-  goLogin(){
+  goLogin() {
     this.router.navigate(['/login']);
-    this.showDiv=false;
+    this.showDiv = false;
   }
-  goAbout(){
+  goAbout() {
     this.router.navigate(['/about']);
-    this.showDiv=false;
+    this.showDiv = false;
   }
-
-
-
-
-  // constructor(private router: Router) { }
-
+  
+  
   ngOnInit(): void {
-  }
-
-  // handleEventTypeChange(event: any): void {
-  //   const selectedEventType = event.target.value;
-  //   console.log(selectedEventType);
-  //   // Assuming you have defined routes in your Angular application
-  //   // Navigate to the corresponding route based on the selected event type
-  //   switch (selectedEventType) {
-  //     case 'wedding':
-  //       this.router.navigate(['/user/wedding']);
-  //       break;
-  //     case 'Birthday':
-  //       this.router.navigate(['/birthday']);
-  //       break;
-  //     // Add cases for other event types if needed
-  //     default:
-  //       // Default redirection if no specific case matches
-  //       this.router.navigate(['/home']);
-  //       break;
-  //   }
+    this.token=localStorage.getItem('token')
+    // console.log(this.token);
+    if (this.token) {
+      this.sub=true;
+      
+    }
+    // console.log(!!this.token);
+    // console.log(this.sub);
     
 
-  // } 
+  }
+
 
   changeRoute(): void {
     switch (this.selectedEventType) {
@@ -88,6 +75,14 @@ export class NavBarComponent {
         // Handle default case
         break;
     }
-    this.ShowService=false;
+    this.ShowService = false;
+  }
+  Logout(){
+    localStorage.clear()
+    this.router.navigate(['/login'])
+  }
+  goProfile(){
+    const rol =localStorage.getItem( "role");
+    this.router.navigate([`${rol}/profile`])
   }
 }

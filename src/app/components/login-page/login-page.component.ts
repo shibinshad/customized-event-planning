@@ -32,6 +32,7 @@ export class LoginPageComponent {
         const role = response.existingUser.role;
         if (response.success) {
           localStorage.setItem('token', response.token);
+          localStorage.setItem('role',response.role)
           if (role === 'agency') {
             this.router.navigate(['/agency/home']);
           } else if (role === 'user') {

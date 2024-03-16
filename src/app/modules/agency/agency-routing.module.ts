@@ -5,6 +5,8 @@ import { LocationFormComponent } from './location-form/location-form.component';
 import { CateringFormComponent } from './catering-form/catering-form.component';
 import { MediaFormComponent } from './media-form/media-form.component';
 import { DecorationFormComponent } from './decoration-form/decoration-form.component';
+import { AgencyProfileComponent } from './agency-profile/agency-profile.component';
+import { ShomeComponent } from './shome/shome.component';
 
 
 const routes: Routes = [
@@ -13,6 +15,9 @@ const routes: Routes = [
   { path:'cateringForm',component:CateringFormComponent},
   { path:'mediaForm',component:MediaFormComponent},
   { path:'decorationForm',component:DecorationFormComponent},
+  { path:'profile',component:AgencyProfileComponent},
+  { path:'shome',component:ShomeComponent},
+
 
 
 ];

@@ -9,8 +9,10 @@ import { FormValidationService } from '../../services/form-validation.service';
 })
 export class ProfileComponent implements OnInit {
   profileForm!: FormGroup;
-  formData=new FormData()
-
+  formData = new FormData();
+  profileData: any;
+  profileDetails:any;
+  img:string=''
 
   constructor(
     private fb: FormBuilder,
@@ -27,33 +29,51 @@ export class ProfileComponent implements OnInit {
       dob: [''],
       avatar: [''],
     });
+    this.get();
   }
 
   onSubmit(): void {
-    if(this.profileForm.valid){
+    if (this.profileForm.valid) {
       const val = this.profileForm.value;
-      this.formData.append('username',val.username)
-      this.formData.append('email',val.email);
-      this.formData.append('address',val.address);
-      this.formData.append('bio',val.bio);
-      this.formData.append('phone',val.phone);
-      this.formData.append('dob ',val.dob);
-      this.formData.append('avatar',val.avatar)
+      // console.log(val);
+      this.formData.append('username', val.username);
+      this.formData.append('email', val.email);
+      this.formData.append('address', val.address);
+      this.formData.append('bio', val.bio);
+      this.formData.append('phone', val.phone);
+      this.formData.append('dob ', val.dob);
       this.service.profile(this.formData).subscribe({
-        next:(res)=>{
+        next: (res) => {
           console.log(res);
-        },error:(err)=>{
+        },
+        error: (err) => {
           console.log(err);
-        }
-      })
+        },
+      });
     }
-    // console.log(this.profileForm.value);
-    // this.service.profile(this.profileForm.value).subscribe((res) => {
-    //   alert('Profile Updated Successfully');
-    // });
   }
-  onChange(event:any){
-    const  files = event.target.files;
-    this.formData.append('avatar',files[0])
+  onChange(event: any) {
+    const files = event.target.files;
+    console.log(files);
+    this.formData.append('avatar', files[0]);
+  }
+  
+  get() {
+    this.service.showProfile().subscribe({
+      next: (profile) => {
+        this.profileData = profile[0];
+        console.log(this.profileData);
+        this.profileDetails=this.profileData.userprofile[0]
+        console.log(this.profileDetails);
+        this.img=this.profileDetails?.avatar
+        const controls = this.profileForm.controls;
+        controls['username']?.patchValue(this.profileData?.username);
+        controls['bio']?.patchValue(this.profileDetails?.bio);
+        controls['email']?.patchValue(this.profileData?.email);
+        controls['address']?.patchValue(this.profileDetails?.address);
+        controls['phone']?.patchValue(this.profileData?.mobileNumber);
+      },
+      error: (error) => {},
+    });
   }
 }

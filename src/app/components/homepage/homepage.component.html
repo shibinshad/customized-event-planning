@@ -24,6 +24,17 @@
 </body>
 
 
+<!-- ___________________chat_____________ -->
+
+<div class="fixed bottom-3 right-3 hidden md:flex w-36 h-12 bg-[#b98d53] justify-evenly items-center rounded-lg cursor-pointer hover:bg-[#b98d53] transition ease-in-out duration-150 z-50">
+  <p class="text-white text-lg">Let's Chat</p>
+  <img class="h-7 w-7" src="../../../assets/images/bubble-chat.png" alt="Chat Icon">
+</div>
+<button class="fixed bottom-3 right-3 md:hidden flex w-12 h-12 bg-[#b98d53] justify-center items-center rounded-full cursor-pointer hover:bg-[#b98d53] transition ease-in-out duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white z-50">
+  <img class="h-7 w-7" src="../../../assets/images/bubble-chat.png" alt="Chat Icon">
+</button>
+
+
 
 <!-- --------------------------cards---------------------------------------- -->
 <!DOCTYPE html>
@@ -55,7 +66,7 @@
           <div class="px-4 py-2">
             <h5 class="mb-2 text-xl font-medium leading-tight text-[#886f4f]  dark:text-black">Maldives</h5>
             <p class="mb-2 text-base text-gray-700 dark:text-gray-300">"Seal your love in paradise – Maldives destination weddings. Turquoise waters, black sands – a dream setting for your perfect day, "Experience your heavenly wedding in the Maldives"</p>
-            <button (click)="goSignup()"  type="button" class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-lg transition duration-150 ease-in-out  focus:bg-primary-600 focus:outline-none focus:ring-0 bg-[#886f4f] dark:bg-[#886f4f]  dark:focus:bg-gray-600 dark:active:bg-gray-600">Explore</button>
+            <!-- <button (click)="goSignup()"  type="button" class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-lg transition duration-150 ease-in-out  focus:bg-primary-600 focus:outline-none focus:ring-0 bg-[#886f4f] dark:bg-[#886f4f]  dark:focus:bg-gray-600 dark:active:bg-gray-600">Explore</button> -->
           </div>
         </div>
       </div>
@@ -72,7 +83,7 @@
           <div class="px-4 py-2">
             <h5 class="mb-2 text-xl font-medium leading-tight text-[#886f4f] dark:text-white">India</h5>
             <p class="mb-2 text-base text-gray-700 dark:text-gray-300">"Elevate your love story with Tajmal Destination Weddings. Picture-perfect settings, meticulous planning, and unmatched elegance—crafting moments that last a lifetime."</p>
-            <button type="button" class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-lg transition duration-150 ease-in-out  focus:bg-primary-600 focus:outline-none focus:ring-0 bg-[#886f4f] dark:bg-[#886f4f]  dark:focus:bg-gray-600 dark:active:bg-gray-600">Explore</button>
+            <!-- <button type="button" class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-lg transition duration-150 ease-in-out  focus:bg-primary-600 focus:outline-none focus:ring-0 bg-[#886f4f] dark:bg-[#886f4f]  dark:focus:bg-gray-600 dark:active:bg-gray-600">Explore</button> -->
           </div>
         </div>
       </div>
@@ -89,7 +100,7 @@
           <div class="px-4 py-2">
             <h5 class="mb-2 text-xl font-medium leading-tight text-[#886f4f] dark:text-white">Paris</h5>
             <p class="mb-2 text-base text-gray-700 dark:text-gray-300">"Say 'I do' in the heart of romance with a Paris Destination Wedding. Iconic landmarks, unparalleled charm, and everlasting love await your special day."</p>
-            <button  type="button"  class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-lg transition duration-150 ease-in-out  focus:bg-primary-600 focus:outline-none focus:ring-0 bg-[#886f4f] dark:bg-[#886f4f]  dark:focus:bg-gray-600 dark:active:bg-gray-600">Explore</button>
+            <!-- <button  type="button"  class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-lg transition duration-150 ease-in-out  focus:bg-primary-600 focus:outline-none focus:ring-0 bg-[#886f4f] dark:bg-[#886f4f]  dark:focus:bg-gray-600 dark:active:bg-gray-600">Explore</button> -->
           </div>
         </div>
       </div>
@@ -97,7 +108,7 @@
   </div>
 
   <div class="text-center mt-8 lg:ml-0">
-    <button class="w-32 lg:w-60 text-lg font-bold mb-6 inline-block bg-[#886f4f] text-white px-4 py-2 rounded-3xl lg:rounded-full hover:bg-[#503d25] focus:outline-none">
+    <button [routerLink]="'locations'" class="w-32 lg:w-60 text-lg font-bold mb-6 inline-block bg-[#886f4f] text-white px-4 py-2 rounded-3xl lg:rounded-full hover:bg-[#503d25] focus:outline-none">
       More
     </button>
   </div>
@@ -120,7 +131,7 @@
           <div class="px-4 py-2">
             <h5 class="mb-2 text-xl font-medium leading-tight text-[#886f4f] dark:text-white">Catering</h5>
             <p class="mb-2 text-base text-gray-700 dark:text-gray-300">"Elevate your events with our catering expertise. From intimate gatherings to grand celebrations,savor the perfect blend of taste and presentation.We turn every occasion into a culinary masterpiece,ensuring a memorable experience all."</p>
-            <button type="button" class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-lg transition duration-150 ease-in-out  focus:bg-primary-600 focus:outline-none focus:ring-0 bg-[#886f4f] dark:bg-[#886f4f]  dark:focus:bg-gray-600 dark:active:bg-gray-600">Explore</button>
+            <button [routerLink]="'catering'" type="button" class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-lg transition duration-150 ease-in-out  focus:bg-primary-600 focus:outline-none focus:ring-0 bg-[#886f4f] hover:bg-[#524027] dark:bg-[#886f4f]  dark:focus:bg-gray-600 dark:active:bg-gray-600">Explore</button>
           </div>
         </div>
       </div>
@@ -140,7 +151,7 @@
               modern accents to timeless classics, our curated collection adds a touch
               of personality to any room. Explore unique pieces that make a statement,
               transforming your space with style and flair."</p>
-            <button type="button" class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-lg transition duration-150 ease-in-out  focus:bg-primary-600 focus:outline-none focus:ring-0 bg-[#886f4f] dark:bg-[#886f4f]  dark:focus:bg-gray-600 dark:active:bg-gray-600">Explore</button>
+            <button [routerLink]="'decorations'" type="button" class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-lg transition duration-150 ease-in-out  focus:bg-primary-600 focus:outline-none focus:ring-0 bg-[#886f4f] hover:bg-[#524027] dark:bg-[#886f4f]  dark:focus:bg-gray-600 dark:active:bg-gray-600">Explore</button>
           </div>
         </div>
       </div>
@@ -155,24 +166,24 @@
             </a>
           </div>
           <div class="px-4 py-2">
-            <h5 class="mb-2 text-xl font-medium leading-tight text-[#886f4f] dark:text-white">Photography</h5>
+            <h5 class="mb-2 text-xl font-medium leading-tight text-[#886f4f] dark:text-white">Media</h5>
             <p class="mb-2 text-base text-gray-700 dark:text-gray-300">"Book a session with us to capture timeless moments. Our skilled
               photographers specialize in creating stunning visuals that tell your
               unique story. From portraits to events, we focus on turning memories
               into high-quality images that last a lifetime."
             </p>
-            <button  type="button" class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-lg transition duration-150 ease-in-out  focus:bg-primary-600 focus:outline-none focus:ring-0 bg-[#886f4f] dark:bg-[#886f4f]  dark:focus:bg-gray-600 dark:active:bg-gray-600">Explore</button>
+            <button [routerLink]="'media'" type="button" class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-lg transition duration-150 ease-in-out  focus:bg-primary-600 focus:outline-none focus:ring-0 bg-[#886f4f] hover:bg-[#524027] dark:bg-[#886f4f]  dark:focus:bg-gray-600 dark:active:bg-gray-600">Explore</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="text-center mt-8 lg:ml-0">
+  <!-- <div class="text-center mt-8 lg:ml-0">
   <button class="w-32 lg:w-60 text-lg font-bold mb-6 inline-block bg-[#886f4f] text-white px-4 py-2 rounded-3xl lg:rounded-full hover:bg-[#503d25] focus:outline-none">
     More
   </button>
-</div>
+</div> -->
 
   
   

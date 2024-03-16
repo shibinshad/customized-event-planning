@@ -17,5 +17,10 @@ export class FormValidationService {
     return this.http.post(`${this.api}/profile`,data)
   }
   
+  showProfile():Observable<any>{
+    return this.http.get(`${this.api}/showProfile`)
+  
+
+  }
   
 }

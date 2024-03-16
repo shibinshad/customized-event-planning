@@ -43,17 +43,19 @@ export class OtpVerificationComponent {
           console.log('verify otp');
           console.log(e);
           localStorage.setItem('role',e.role)
+          localStorage.setItem('token',e.token)
           
           if (e.success) {
             this.role=localStorage.getItem('role')
             console.log('inside if e.success');
-            // this.router.navigate([`${this.role}/home`])
             if (this.role == 'admin') {
               console.log('admin');
               this.router.navigate(['/admin/home'])
             } else if (this.role == 'user') {
               console.log('user');
               this.router.navigate(['/'])
+            } else if (this.role=='agency'){
+              this.router.navigate(['/agency/home'])
             }
             console.log(e.token)
           }
@@ -63,3 +65,6 @@ export class OtpVerificationComponent {
     }
   }
 }
+
+
+
