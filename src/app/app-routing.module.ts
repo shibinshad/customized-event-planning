@@ -39,7 +39,6 @@ const routes: Routes = [
 
   {
     path: 'agency',
-    canActivate:[AgencyGuard],
     loadChildren: () =>
       import('./modules/agency/agency.module').then((e) => e.AgencyModule),
   },

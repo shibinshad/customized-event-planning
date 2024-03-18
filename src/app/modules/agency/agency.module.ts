@@ -12,7 +12,7 @@ import { AgencyProfileComponent } from './agency-profile/agency-profile.componen
 import { AlertComponent } from './alert/alert.component';
 import { ShomeComponent } from './shome/shome.component';
 import { pipesin2 } from 'src/app/pipes/customPipes2.pipe';
-// import { AgencyService } from './service/agency.service';
+import { AgencyService } from './service/agency.service';
 
 @NgModule({
   declarations: [
@@ -25,8 +25,7 @@ import { pipesin2 } from 'src/app/pipes/customPipes2.pipe';
     AgencyProfileComponent,
     AlertComponent,
     ShomeComponent,
-    pipesin2
-    // AgencyService
+    pipesin2,
   ],
   imports: [CommonModule, AgencyRoutingModule, FormsModule,ReactiveFormsModule],
 })

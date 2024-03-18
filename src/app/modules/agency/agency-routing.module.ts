@@ -8,18 +8,19 @@ import { DecorationFormComponent } from './decoration-form/decoration-form.compo
 import { AgencyProfileComponent } from './agency-profile/agency-profile.component';
 import { ShomeComponent } from './shome/shome.component';
 
-
 const routes: Routes = [
   { path: 'home', component: AgencyHomeComponent },
   { path: 'locationForm', component: LocationFormComponent },
-  { path:'cateringForm',component:CateringFormComponent},
-  { path:'mediaForm',component:MediaFormComponent},
-  { path:'decorationForm',component:DecorationFormComponent},
-  { path:'profile',component:AgencyProfileComponent},
-  { path:'shome',component:ShomeComponent},
-
-
-
+  { path: 'cateringForm', component: CateringFormComponent },
+  { path: 'mediaForm', component: MediaFormComponent },
+  { path: 'decorationForm', component: DecorationFormComponent },
+  { path: 'profile', component: AgencyProfileComponent },
+  { path: 'shome', component: ShomeComponent },
+  { path: 'media', component: MediaFormComponent },
+  { path: 'catering', component: CateringFormComponent },
+  { path: 'decoration', component: DecorationFormComponent },
+  { path: 'location', component: LocationFormComponent },
+  { path: 'mediaForm/:id', component: MediaFormComponent },
 ];
 
 @NgModule({
