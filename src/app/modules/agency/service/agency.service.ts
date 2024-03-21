@@ -10,7 +10,11 @@ export class AgencyService {
   agencyApi = 'http://localhost:3000/agency';
 
   MediaForm(data: any): Observable<any> {
+    console.log(data);
     return this.http.post(`${this.agencyApi}/MediaForm`, data);
+  }
+  updateMediaForm(data:any,id:any):Observable<any>{
+    return this.http.patch(`${this.agencyApi}/updateMediaForm/${id}`,data)
   }
   Location(data: any): Observable<any> {
     return this.http.post(`${this.agencyApi}/Location`, data);
@@ -26,7 +30,6 @@ export class AgencyService {
   }
 
   getDetails(id:any):Observable<any>{
-    console.log(id);
     return this.http.get(`${this.agencyApi}/getFormDetails/${id}`)
   }
 }

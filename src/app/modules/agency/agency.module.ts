@@ -11,8 +11,10 @@ import { DecorationFormComponent } from './decoration-form/decoration-form.compo
 import { AgencyProfileComponent } from './agency-profile/agency-profile.component';
 import { AlertComponent } from './alert/alert.component';
 import { ShomeComponent } from './shome/shome.component';
-import { pipesin2 } from 'src/app/pipes/customPipes2.pipe';
-import { AgencyService } from './service/agency.service';
+import { ShowMediaComponent } from './shome/show-media/show-media.component';
+import { ShowCateringComponent } from './shome/show-catering/show-catering.component';
+import { ShowLocationComponent } from './shome/show-location/show-location.component';
+import { ShowDecorationComponent } from './shome/show-decoration/show-decoration.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +27,16 @@ import { AgencyService } from './service/agency.service';
     AgencyProfileComponent,
     AlertComponent,
     ShomeComponent,
-    pipesin2,
+    ShowMediaComponent,
+    ShowCateringComponent,
+    ShowLocationComponent,
+    ShowDecorationComponent,
   ],
-  imports: [CommonModule, AgencyRoutingModule, FormsModule,ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    AgencyRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class AgencyModule {}

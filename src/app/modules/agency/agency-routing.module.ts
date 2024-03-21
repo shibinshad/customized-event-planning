@@ -21,6 +21,10 @@ const routes: Routes = [
   { path: 'decoration', component: DecorationFormComponent },
   { path: 'location', component: LocationFormComponent },
   { path: 'mediaForm/:id', component: MediaFormComponent },
+  { path: 'cateringForm/:id', component: CateringFormComponent },
+  { path: 'shome', component: ShomeComponent },
+
+  
 ];
 
 @NgModule({

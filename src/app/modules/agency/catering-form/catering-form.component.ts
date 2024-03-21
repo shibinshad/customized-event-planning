@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AgencyService } from '../service/agency.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-catering-form',
@@ -9,9 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./catering-form.component.css'],
 })
 export class CateringFormComponent {
-  constructor(private fb: FormBuilder, private service: AgencyService,private router:Router) {}
+  userDetails: any;
+  constructor(private fb: FormBuilder, private service: AgencyService,private router:Router,private route:ActivatedRoute) {}
   cateringForm!: FormGroup;
   showSuccess:Boolean=false;
+  id:any;
 
   formdata = new FormData();
   onChange(event: any) {
@@ -20,12 +22,41 @@ export class CateringFormComponent {
   }
 
   ngOnInit(): void {
+    this.route.params.subscribe((id) => {
+      this.id = id['id'];
+      // console.log(this.id);
+    });
+    this.getFormDetails()
     this.cateringForm = this.fb.group({
       Name: [''],
       Discription: [''],
       price: [''],
       image: [''],
       cateringType: [''],
+    });
+  }
+  getFormDetails() {
+    this.service.getDetails(this.id).subscribe({
+      next: (res) => {
+        console.log(res.Description);
+        this.userDetails = res;
+        // console.log(this.userDetails.Type);
+        if (this.userDetails) {
+          this.setUserDetails(this.userDetails);
+        }
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  setUserDetails(userDetails: any) {
+    this.cateringForm.patchValue({
+      Name: userDetails.name,
+      Discription: userDetails.Description,
+      price: userDetails.price,
+      cateringType: userDetails.Type,
     });
   }
 

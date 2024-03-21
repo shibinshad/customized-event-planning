@@ -21,12 +21,13 @@ export class MediaFormComponent implements OnInit {
   showSuccess: boolean = false;
   formdata = new FormData();
   id: any;
+  userDetails: any;
   ngOnInit(): void {
     this.route.params.subscribe((id) => {
       this.id = id['id'];
-      console.log(this.id);
+      // console.log(this.id);
     });
-    this.getFormDetails()
+    this.getFormDetails();
     this.mediaForm = this.fb.group({
       Name: ['', Validators.required],
       Description: ['', Validators.required],
@@ -39,8 +40,24 @@ export class MediaFormComponent implements OnInit {
   getFormDetails() {
     this.service.getDetails(this.id).subscribe({
       next: (res) => {
-        console.log(res);
+        this.userDetails = res;
+        // console.log(this.userDetails.Type);
+        if (this.userDetails) {
+          this.setUserDetails(this.userDetails);
+        }
       },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  setUserDetails(userDetails: any) {
+    this.mediaForm.patchValue({
+      Name: userDetails.name,
+      Description: userDetails.Description,
+      price: userDetails.price,
+      cateringType: userDetails.Type,
     });
   }
 
@@ -50,29 +67,50 @@ export class MediaFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.mediaForm.valid) {
-      console.log('btn clicked');
+    if (!this.id) {
+      if (this.mediaForm.valid) {
+        console.log('btn clicked');
+        const val = this.mediaForm.value;
+        this.formdata.append('Name', val.Name);
+        this.formdata.append('Description', val.Description);
+        this.formdata.append('price', val.price);
+        // this.formdata.append('image', val.image);
+        this.formdata.append('type', val.cateringType);
+        this.formdata.append('category', 'media');
+        console.log(val);
+        this.service.MediaForm(this.formdata).subscribe({
+          next: (res: any) => {
+            console.log(res);
+            if (res.success) {
+              this.showSuccess = true;
+              setTimeout(() => {
+                this.router.navigate(['/agency/home']);
+              }, 3000);
+            }
+          },
+          error: (err: any) => {
+            console.log(err);
+          },
+        });
+      }
+    } else {
       const val = this.mediaForm.value;
+
       this.formdata.append('Name', val.Name);
       this.formdata.append('Description', val.Description);
       this.formdata.append('price', val.price);
       this.formdata.append('image', val.image);
       this.formdata.append('type', val.cateringType);
       this.formdata.append('category', 'media');
-      this.service.MediaForm(this.formdata).subscribe({
-        next: (res: any) => {
+      this.service.updateMediaForm(this.formdata, this.id).subscribe({
+        next: (res) => {
           console.log(res);
-          if (res.success) {
-            this.showSuccess = true;
-            setTimeout(() => {
-              this.router.navigate(['/agency/home']);
-            }, 3000);
-          }
         },
-        error: (err: any) => {
+        error: (err) => {
           console.log(err);
         },
       });
     }
+    this.formdata = new FormData();
   }
 }
