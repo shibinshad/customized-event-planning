@@ -10,15 +10,15 @@ import { Observable } from 'rxjs';
 export class FormValidationService {
   constructor(private http: HttpClient) {}
 
-  api = 'http://localhost:3000/user';
+  api = 'http://192.168.0.66:3000';
 
   
   profile(data:any):Observable<any>{
-    return this.http.post(`${this.api}/profile`,data)
+    return this.http.post(`${this.api}/agency/profile`,data)
   }
   
   showProfile():Observable<any>{
-    return this.http.get(`${this.api}/showProfile`)
+    return this.http.get(`${this.api}/agency/showProfile`)
   
 
   }

@@ -48,7 +48,6 @@ import { pipesin2 } from './pipes/customPipes2.pipe';
     DecorationsComponent,
     pipesin,
     pipesin2,
-
     
   ],
   imports: [
@@ -62,6 +61,7 @@ import { pipesin2 } from './pipes/customPipes2.pipe';
     RouterModule,
     CommonModule,
   ],
+  exports:[],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: IntercepterService, multi: true },
   ],

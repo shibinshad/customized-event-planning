@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonService } from 'src/app/service/common.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -19,7 +18,7 @@ export class LocationsComponent implements OnInit {
     this.userServ.getLocation().subscribe({
       next: (res) => {
         console.log(res);
-        this.locations = res?.location;
+        this.locations = res?.location; // Adding null check here
       },
       error: (err) => {
         console.log(err);
@@ -27,8 +26,10 @@ export class LocationsComponent implements OnInit {
     });
   }
 
-  sortByPrice(order: 'asc' | 'desc') {
-    this.locations.sort((a: { price: number; }, b: { price: number; }) => {
+  sortByPrice(event: any) {
+    const order = event.target.value;
+    if (!this.locations) return; // Ensure locations is not null
+    this.locations.sort((a: { price: number }, b: { price: number }) => {
       if (order === 'asc') {
         return a.price - b.price;
       } else {

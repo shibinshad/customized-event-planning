@@ -5,6 +5,7 @@ import { UsersComponent } from './users/users.component';
 import { AgenciesComponent } from './agencies/agencies.component';
 import { AdminComponent } from './admin/admin.component';
 import { PendingRequestComponent } from './pending-request/pending-request.component';
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     UsersComponent,
@@ -12,8 +13,7 @@ import { PendingRequestComponent } from './pending-request/pending-request.compo
     AdminComponent,
     PendingRequestComponent,
     
-    
   ],
-  imports: [AdminRoutingModule],
+  imports: [AdminRoutingModule,CommonModule],
 })
 export class Adminmodule {}

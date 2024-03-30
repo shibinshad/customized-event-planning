@@ -7,22 +7,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent {
-  constructor(private router: Router) {
-    
-  }
-  sub=false
+  constructor(private router: Router) {}
+  sub = false;
   ShowService: Boolean = false;
-  role = localStorage.getItem('role')
+  role = localStorage.getItem('role');
   selectedEventType: string = '';
-  token :any;
-  
+  token: any;
+  hideNavBar: any;
+  url:any;
 
   showService() {
     this.ShowService = !this.ShowService;
   }
 
   showDiv: Boolean = false;
-  
+
   onclick() {
     this.showDiv = !this.showDiv;
     console.log('btn  clicked!', this.showDiv);
@@ -39,21 +38,17 @@ export class NavBarComponent {
     this.router.navigate(['/about']);
     this.showDiv = false;
   }
-  
-  
+
   ngOnInit(): void {
-    this.token=localStorage.getItem('token')
+    this.token = localStorage.getItem('token');
     // console.log(this.token);
     if (this.token) {
-      this.sub=true;
-      
+      this.sub = true;
     }
     // console.log(!!this.token);
     // console.log(this.sub);
     
-
   }
-
 
   changeRoute(): void {
     switch (this.selectedEventType) {
@@ -77,12 +72,12 @@ export class NavBarComponent {
     }
     this.ShowService = false;
   }
-  Logout(){
-    localStorage.clear()
-    this.router.navigate(['/login'])
+  Logout() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
-  goProfile(){
-    const rol =localStorage.getItem( "role");
-    this.router.navigate([`${rol}/profile`])
+  goProfile() {
+    const rol = localStorage.getItem('role');
+    this.router.navigate([`${rol}/profile`]);
   }
 }

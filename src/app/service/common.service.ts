@@ -9,7 +9,7 @@ export class CommonService {
   constructor(private http: HttpClient) {}
   role: any;
 
-  api = 'http://localhost:3000';
+  api = 'http://192.168.0.66:3000';
 
   getApi(data: any): Observable<any> {
     return this.http.post(`${this.api}/signup`, data);

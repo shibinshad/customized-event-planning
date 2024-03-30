@@ -49,4 +49,7 @@ export class HomepageComponent {
   goSignup(){
     this.router.navigate(['signup']);
   }
+  gochat(){
+    this.router.navigate(['chat'])
+  }
 }

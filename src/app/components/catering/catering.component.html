@@ -2,33 +2,65 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <div class="col-span-1 md:col-span-2 lg:col-span-3">
         <div class="flex justify-between items-center mb-4">
-          <div class="w-full md:w-auto">
+          <div class="relative inline-flex">
             <select
               name="filterType"
               id="filterType"
               [(ngModel)]="selectedFilterType"
               (change)="applyFilter()"
-              class="block  w-full md:w-auto px-3 py-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded-md shadow-sm leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             >
-              <option value="">-- Select --</option>
+              <option value="">Select</option>
               <option value="cusine">Cuisine</option>
               <option value="chef">Chef</option>
               <option value="services">Service</option>
             </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+              <svg
+                class="h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 14.293a1 1 0 001.414 0l5-5a1 1 0 00-1.414-1.414L10 12.586l-4.293-4.293a1 1 0 00-1.414 1.414l5 5a1 1 0 000 1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
           </div>
-          <div class="w-full md:w-auto mt-4 md:mt-0">
+          <div class="relative inline-flex mt-4 md:mt-0">
             <select
               name="filterPrice"
               id="filterPrice"
               [(ngModel)]="selectedPriceFilter"
               (change)="applyFilter()"
-              class="block w-full md:w-auto px-3 py-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              class="block appearance-none bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded-md shadow-sm leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             >
               <option value="">-- Select --</option>
               <option value="lowToHigh">Price - Low to High</option>
               <option value="highToLow">Price - High to Low</option>
             </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+              <svg
+                class="h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 14.293a1 1 0 001.414 0l5-5a1 1 0 00-1.414-1.414L10 12.586l-4.293-4.293a1 1 0 00-1.414 1.414l5 5a1 1 0 000 1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
           </div>
+          
+          
         </div>
       </div>
       <ng-container *ngFor="let loc of filteredCatering">
