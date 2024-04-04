@@ -4,6 +4,13 @@
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     <div *ngFor="let user of users" class="user-card bg-white rounded-lg p-6 shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-2">
       <div class="flex items-center mb-4">
+        
+        
+        <div *ngIf="user.isBlocked" class="absolute top-0 right-0 transform translate-x-2 -translate-y-2 bg-red-600 w-16 h-6 flex items-center justify-center rounded-full shadow-b">
+          <p class="text-white font-bold text-xs">Blocked</p>
+      </div>
+      
+
         <img [src]="user?.profile[0]?.avatar" alt="{{ user.username }} avatar" class="w-16 h-16 rounded-full object-cover mr-4">
         <div>
           <h3 class="text-lg font-semibold text-gray-800 mb-1">{{ user.username }}</h3>
@@ -11,11 +18,12 @@
         </div>
       </div>
       <div class="flex justify-end space-x-2">
-        <button class="bg-[#b98d53]  text-white hover:bg-[#7e5d31] focus:outline-none rounded-lg px-4 py-2 text-sm">
+        <button (click)="RemoveUser(user._id)" class="bg-[#b98d53] text-white hover:bg-[#7e5d31] focus:outline-none rounded-lg px-4 py-2 text-sm">
           Remove
         </button>
-        <button class="bg-[#4a361a] text-white hover:bg-[#251c0f] focus:outline-none rounded-lg px-4 py-2 text-sm">
-          Block
+        <button (click)="block(user._id)" class="bg-[#4a361a] text-white hover:bg-[#251c0f] focus:outline-none rounded-lg px-4 py-2 text-sm">
+          <span *ngIf="!user.isBlocked">Block</span>
+          <span *ngIf="user.isBlocked">Unblock</span>
         </button>
       </div>
     </div>

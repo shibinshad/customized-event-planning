@@ -24,4 +24,32 @@ export class AgenciesComponent {
        },
      });
    }
+
+
+   block(userId: any) {
+    this.adminServ.block(userId).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.getUsersList();
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  
+  RemoveUser(userId: any) {
+    this.adminServ.RemoveUser(userId).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.getUsersList()
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+
 }

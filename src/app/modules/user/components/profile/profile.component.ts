@@ -35,7 +35,6 @@ export class ProfileComponent implements OnInit {
   onSubmit(): void {
     if (this.profileForm.valid) {
       const val = this.profileForm.value;
-      // console.log(val);
       this.formData.append('username', val.username);
       this.formData.append('email', val.email);
       this.formData.append('address', val.address);

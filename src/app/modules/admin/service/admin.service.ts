@@ -8,7 +8,7 @@ import { Observable } from "rxjs";
 
 export class AdminService{
     constructor(private http:HttpClient){}
-    api:any='http://192.168.0.66:3000/admin'
+    api:any='http://localhost:3000/admin'
 
     getUsers():Observable<any>{
         return this.http.get(`${this.api}/usersList`)
@@ -16,6 +16,11 @@ export class AdminService{
     getAgency():Observable<any>{
         return this.http.get(`${this.api}/agencyList`)
     }
-
+    block(userId:any):Observable<any> {
+        return this.http.patch(`${this.api}/block`,{userId})
+    }
+    RemoveUser(userId:any):Observable<any> {
+        return this.http.delete(`${this.api}/RemoveUser/${userId}`)
+    }
 
 }

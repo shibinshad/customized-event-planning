@@ -12,15 +12,11 @@ export class FormValidationService {
 
   api = 'http://192.168.0.66:3000';
 
-  
-  profile(data:any):Observable<any>{
-    return this.http.post(`${this.api}/agency/profile`,data)
+  profile(data: any): Observable<any> {
+    return this.http.post(`${this.api}/agency/profile`, data);
   }
-  
-  showProfile():Observable<any>{
-    return this.http.get(`${this.api}/agency/showProfile`)
-  
 
+  showProfile(): Observable<any> {
+    return this.http.get(`${this.api}/user/showProfile`);
   }
-  
 }

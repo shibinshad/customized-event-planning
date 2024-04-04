@@ -7,19 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-dashbord.component.css']
 })
 export class AdminDashbordComponent {
-  constructor(private router:Router) {}
-  u(){
-    this.router.navigate(['/admin/users'])
-  }
-  A(){
-    this.router.navigate(['/admin/agencies'])
-  }
-  Ad(){
-    this.router.navigate(['/admin/admin'])
-  }
-  p(){
-    this.router.navigate(['/admin/pendingRequest'])
-  }
   
   
 }

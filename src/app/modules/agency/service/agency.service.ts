@@ -32,4 +32,10 @@ export class AgencyService {
   getDetails(id:any):Observable<any>{
     return this.http.get(`${this.agencyApi}/getFormDetails/${id}`)
   }
+  getAgencyDetails ():Observable<any>{
+    return this.http.get(`${this.agencyApi}/agencyProfile`)
+  }
+  updateProfile (data:any):Observable<any>{
+    return this.http.patch(`${this.agencyApi}/updateProfile`,data)
+  }
 }
