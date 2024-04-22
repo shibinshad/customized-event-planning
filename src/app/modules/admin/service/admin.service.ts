@@ -22,5 +22,11 @@ export class AdminService{
     RemoveUser(userId:any):Observable<any> {
         return this.http.delete(`${this.api}/RemoveUser/${userId}`)
     }
+    getPendingUsers():Observable<any>{
+        return this.http.get(`${this.api}/getPending`)
+    }
+    approveUser(userId:any):Observable<any>{
+        return this.http.patch(`${this.api}/approveUser`,{userId})
+    }
 
 }

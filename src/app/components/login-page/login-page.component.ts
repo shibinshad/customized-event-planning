@@ -10,6 +10,8 @@ import { CommonService } from 'src/app/service/common.service';
 })
 export class LoginPageComponent {
   loginForm!: FormGroup;
+  // isAuthenticated: boolean = false;
+  showLoading: any;
 
   constructor(
     private fb: FormBuilder,
@@ -18,6 +20,7 @@ export class LoginPageComponent {
   ) {}
 
   ngOnInit(): void {
+    // this.isAuthenticated=true;
     this.loginForm = this.fb.group({
       usernameOrEmail: ['', Validators.required],
       password: ['', Validators.required],
@@ -27,18 +30,32 @@ export class LoginPageComponent {
   onSubmit(): void {
     if (this.loginForm.valid) {
       console.log('Form submitted:', this.loginForm.value);
-      this.service.login(this.loginForm.value).subscribe((response) => {
-        console.log();
-        const role = response.existingUser.role;
-        if (response.success) {
-          localStorage.setItem('token', response.token);
-          localStorage.setItem('role',response.role)
-          if (role === 'agency') {
-            this.router.navigate(['/agency/home']);
-          } else if (role === 'user') {
-            this.router.navigate(['/']);
+      this.service.login(this.loginForm.value).subscribe({
+        next: (response) => {
+          const user = response.existingUser;
+          const role = response.existingUser.role;
+          if (response.success) {
+            localStorage.setItem('token', response.token);
+            localStorage.setItem('role', response.role);
+            if (role === 'agency') {
+              if (user.isVerified == true) {
+                this.router.navigate(['/agency/home']);
+              } else {
+                alert('the request is not verified');
+                this.router.navigate(['/login']);
+              }
+            } else if (role === 'user') {
+              this.showLoading = true;
+              this.router.navigate(['/']);
+            } else if (role == 'admin') {
+              this.router.navigate([`/admin/dashbord`]);
+              this.showLoading = true;
+            }
           }
-        }
+        },
+        error: (err) => {
+          console.log(err);
+        },
       });
     } else {
       console.error('Form is invalid');

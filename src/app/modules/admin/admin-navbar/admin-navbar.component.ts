@@ -8,8 +8,18 @@ import { Router } from '@angular/router';
 })
 export class AdminNavbarComponent {
   istogglebutton: Boolean = false;
+  role:any;
+  isAdmin:Boolean=false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    this.role=localStorage.getItem('role')
+    if(this.role=='admin'){
+      this.isAdmin=true;
+    }else{
+      this.isAdmin=false;
+    }
+    console.log(this.isAdmin);
+  }
   u() {
     this.router.navigate(['/admin/users']);
   }

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AgencyService {
   constructor(private http: HttpClient) {}
-  agencyApi = 'http://192.168.0.66:3000/agency';
+  agencyApi = 'http://localhost:3000/agency';
 
   MediaForm(data: any): Observable<any> {
     console.log(data);

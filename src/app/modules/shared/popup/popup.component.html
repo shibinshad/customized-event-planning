@@ -1,0 +1,9 @@
+<div class="fixed inset-0 z-50 overflow-auto bg-gray-500 bg-opacity-75 flex justify-center items-center">
+    <div class="bg-white p-8 rounded-md shadow-md w-80 flex flex-col items-center">
+      <h2 class="text-xl font-semibold mb-4">Are you sure?</h2>
+      <div class="flex justify-center w-full"> 
+        <button (click)="confirm()" class="bg-[#b98d53] hover:bg-[#4e3b23] text-white font-bold py-2 px-4 rounded mr-4 w-auto" >Yes</button>
+        <button (click)="decline()" class="bg-[#463114] hover:bg-[#281e12] text-white font-bold py-2 px-4 rounded w-auto">No</button>
+      </div>
+    </div>
+</div>

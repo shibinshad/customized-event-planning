@@ -23,10 +23,15 @@ export class SignupComponent implements OnInit {
   lin: any;
   role: string = '';
   myForm!: FormGroup;
+showLoading:any;
 
   signupForms = new FormGroup({
     role: new FormControl(''),
   });
+  
+
+
+
 
   constructor(
     private fb: FormBuilder,
@@ -88,8 +93,10 @@ export class SignupComponent implements OnInit {
       console.log('form', formvalues);
 
       if (this.signupForm.valid) {
+        this.showLoading=true;
         this.serv.getApi(formvalues).subscribe({
           next: (response) => {
+          this.showLoading=false;
             if (response.success) {
               console.log(response);
               this.lin = response.data;
@@ -121,4 +128,6 @@ export class SignupComponent implements OnInit {
   goHome() {
     this.router.navigate(['']);
   }
+
+  
 }

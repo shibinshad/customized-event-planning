@@ -1,0 +1,9 @@
+.gradient {
+    background: rgb(71, 49, 21);
+    background: linear-gradient(
+      90deg,
+      rgba(185, 141, 83, 1) 11%, /* Changed to be first */
+      rgba(71, 49, 21, 1) 97% /* Changed to be second */
+    );
+    
+}

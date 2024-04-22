@@ -15,6 +15,7 @@ import { ShowMediaComponent } from './shome/show-media/show-media.component';
 import { ShowCateringComponent } from './shome/show-catering/show-catering.component';
 import { ShowLocationComponent } from './shome/show-location/show-location.component';
 import { ShowDecorationComponent } from './shome/show-decoration/show-decoration.component';
+import { LoadingComponent } from '../shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ShowDecorationComponent } from './shome/show-decoration/show-decoration
     AgencyRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    LoadingComponent
   ],
 })
 export class AgencyModule {}

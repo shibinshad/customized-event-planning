@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
   [x: string]: any;
-  api = 'http://192.168.0.66:3000';
+  api = 'http://localhost:3000';
 
   constructor(private http:HttpClient) { }
 
@@ -24,5 +24,7 @@ export class UserService {
   getdecorations():Observable<any>{
     return this.http.get(`${this.api}/user/decorations`)
   }
-
+  addToCart(data:any):Observable<any>{
+    return this.http.post(`${this.api}/user/addToCart`,{data})
+  }
 }

@@ -27,6 +27,8 @@ import { MediaComponent } from './components/media/media.component';
 import { DecorationsComponent } from './components/decorations/decorations.component';
 import { pipesin } from './pipes/customPipes.pipe';
 import { pipesin2 } from './pipes/customPipes2.pipe';
+import { Adminmodule } from './modules/admin/admin.module';
+import { LoadingComponent } from './modules/shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { pipesin2 } from './pipes/customPipes2.pipe';
     FormsModule,
     RouterModule,
     CommonModule,
+    Adminmodule,
+    LoadingComponent
   ],
   exports:[],
   providers: [

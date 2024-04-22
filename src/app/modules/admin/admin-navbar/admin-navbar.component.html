@@ -1,5 +1,5 @@
-<div class="w-full">
-    <nav class="h-28 flex items-center bg-[#b98d53] p-4">
+<div class="w-full" *ngIf="isAdmin">
+    <nav class="h-28 flex items-center gradient p-4">
       <div class="flex items-center mr-auto">
         <img src="../../../../assets/images/customcraze updated logo.png" alt="Logo" class="h-20 w-20 mr-2">
         <h1 class="text-white font-leckerli text-2xl">CustomCraze Creation</h1>
@@ -13,17 +13,15 @@
         <a (click)="ad()" class="text-lg text-white transition-transform duration-300 transform hover:-translate-y-1">Home</a>
         <a (click)="u()" class="text-lg text-white transition-transform duration-300 transform hover:-translate-y-1">Users</a>
         <a (click)="A()" class="text-lg text-white transition-transform duration-300 transform hover:-translate-y-1">Agencies</a>
-        <a (click)="Ad()" class="text-lg text-white transition-transform duration-300 transform hover:-translate-y-1">Admin</a>
         <a (click)="p()" class="text-lg text-white transition-transform duration-300 transform hover:-translate-y-1">Pending request</a>
         <a (click)="logout()" class="text-lg text-white transition-transform duration-300 transform hover:-translate-y-1">Logout</a>
       </div>
     </nav>
-    
+
     <div *ngIf="istogglebutton" class="lg:hidden" id="mobile-menu" style="background-color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); text-align: right;">
         <a (click)="ad()" class="block text-lg text-[#b98d53] py-2 px-4">Home</a>
         <a (click)="u()" class="block text-lg text-[#b98d53] py-2 px-4">Users</a>
         <a (click)="A()" class="block text-lg text-[#b98d53] py-2 px-4">Agencies</a>
-        <a (click)="Ad()" class="block text-lg text-[#b98d53] py-2 px-4">Admin</a>
         <a (click)="p()" class="block text-lg text-[#b98d53] py-2 px-4">Pending request</a>
         <a (click)="logout()" class="block text-lg text-[#b98d53] py-2 px-4">Logout</a>
     </div>

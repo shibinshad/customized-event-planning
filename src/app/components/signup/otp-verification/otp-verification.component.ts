@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/service/common.service';
 
@@ -7,7 +7,15 @@ import { CommonService } from 'src/app/service/common.service';
   templateUrl: './otp-verification.component.html',
   styleUrls: ['./otp-verification.component.css'],
 })
-export class OtpVerificationComponent {
+export class OtpVerificationComponent implements OnInit {
+
+  showLoading:any;
+  ngOnInit(): void {
+    
+  }
+    
+
+
   OtpInput: string = '';
   @Input() data: any;
   role: any;
@@ -28,22 +36,17 @@ export class OtpVerificationComponent {
   onVerify() {
 
     try {
-      console.log(this.role);
-      console.log(this.otp);
+      this.showLoading=true;
       const iotp = this.otp.join('')
-      console.log(iotp);
-
-      console.log('verify otp clicked');
       const one = { ...this.data, iotp }
-      console.log(one);
 
       this.serv
         .verifyOtp(one)
         .subscribe((e) => {
-          console.log('verify otp');
           console.log(e);
           localStorage.setItem('role',e.role)
           localStorage.setItem('token',e.token)
+          this.showLoading=false;
           
           if (e.success) {
             this.role=localStorage.getItem('role')
@@ -55,7 +58,8 @@ export class OtpVerificationComponent {
               console.log('user');
               this.router.navigate(['/'])
             } else if (this.role=='agency'){
-              this.router.navigate(['/agency/home'])
+              alert('please wait for confirmation')
+              this.router.navigate(['/login'])
             }
             console.log(e.token)
           }

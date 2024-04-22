@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css'],
 })
-export class NavBarComponent {
+export class NavBarComponent implements OnInit{
   constructor(private router: Router) {}
   sub = false;
   ShowService: Boolean = false;
@@ -15,6 +15,7 @@ export class NavBarComponent {
   token: any;
   hideNavBar: any;
   url:any;
+  isAdmin:Boolean=false;
 
   showService() {
     this.ShowService = !this.ShowService;
@@ -40,14 +41,16 @@ export class NavBarComponent {
   }
 
   ngOnInit(): void {
+
     this.token = localStorage.getItem('token');
-    // console.log(this.token);
+    if(!this.token || this.role=='user'){
+      
+    }
+
+    console.log(this.isAdmin,"Is admin");
     if (this.token) {
       this.sub = true;
     }
-    // console.log(!!this.token);
-    // console.log(this.sub);
-    
   }
 
   changeRoute(): void {

@@ -7,6 +7,7 @@ import { filter } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  isAdmin = false
   title = 'frontend';
   isAdminRoute = false;
   constructor(private router: Router ,) {
@@ -14,6 +15,9 @@ export class AppComponent {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
         this.isAdminRoute = this.router.url.startsWith('/admin'); 
+        if(this.isAdminRoute){
+          this.isAdmin = true
+        }
       });
   }
 }
