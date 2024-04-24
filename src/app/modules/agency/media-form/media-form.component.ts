@@ -25,7 +25,6 @@ export class MediaFormComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((id) => {
       this.id = id['id'];
-      // console.log(this.id);
     });
     this.getFormDetails();
     this.mediaForm = this.fb.group({
@@ -41,7 +40,6 @@ export class MediaFormComponent implements OnInit {
     this.service.getDetails(this.id).subscribe({
       next: (res) => {
         this.userDetails = res;
-        // console.log(this.userDetails.Type);
         if (this.userDetails) {
           this.setUserDetails(this.userDetails);
         }
@@ -53,6 +51,7 @@ export class MediaFormComponent implements OnInit {
   }
 
   setUserDetails(userDetails: any) {
+    console.log(userDetails);
     this.mediaForm.patchValue({
       Name: userDetails.name,
       Description: userDetails.Description,

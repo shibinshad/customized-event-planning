@@ -1,87 +1,128 @@
-<app-popup (close)="handleDecline($event)" (close)="handleConfirm($event)" *ngIf="showPopUp"></app-popup>
+<app-popup
+  (close)="handleDecline($event)"
+  (close)="handleConfirm($event)"
+  *ngIf="showPopUp"
+></app-popup>
 
-
-<div *ngIf="!products || products==0" class="min-h-screen flex flex-col items-center justify-center">
-    <p class="text-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-10">
-        NO <span class="text-[#b98d53]">ORDERS YET <span class="text-black">!!</span></span>
-    </p>
+<div
+  *ngIf="!products || products == 0"
+  class="min-h-screen flex flex-col items-center justify-center"
+>
+  <p
+    class="text-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-10"
+  >
+    NO
+    <span class="text-[#b98d53]"
+      >ORDERS YET <span class="text-black">!!</span></span
+    >
+  </p>
 </div>
 
-<div *ngIf="products && products.length > 0" class="max-w-screen-xl mx-auto mt-10">
-    <div class="flex flex-col sm:flex-row">
-        <!-- Product List -->
-        <div class="w-full sm:w-1/2 mb-4 sm:mb-0 mr-0 sm:mr-4">
-            <div *ngFor="let prod of products" class="bg-white mb-5 shadow-md rounded-md overflow-hidden flex">
-                <div class="w-1/2 flex justify-start">
-                    <div class="relative flex-shrink-0 w-56 sm:w-40 md:w-48 overflow-hidden mr-4">
-                        <img [src]="prod.Image" alt="Product Image"
-                            class="absolute inset-0 w-full h-full object-cover rounded-bl-lg rounded-tl-lg">
-                    </div>
-                </div>
-
-                <div class="w-1/2 p-4 flex flex-col justify-start">
-                    <div class="mb-2 pl-4">
-                        <h3 class="text-xl font-semibold mb-2">{{prod.name}}</h3>
-                        <p class="text-gray-600 mb-2">Category: {{prod.category}}</p>
-                        <p class="text-gray-600 mb-2">Type: {{prod.Type}}</p>
-                        <p class="text-gray-600 mb-2">Price: ₹ {{prod.price}}</p>
-                    </div>
-                    <button (click)="removeFromcart(prod._id)"
-                        class="bg-[#b98d53] hover:bg-[#4e3b23] text-white font-bold py-2 px-4 rounded self-end mt-2">Remove</button>
-                </div>
-            </div>
+<div
+  *ngIf="products && products.length > 0"
+  class="max-w-screen-xl mx-auto mt-10"
+>
+  <div class="flex flex-col sm:flex-row">
+    <!-- Product List -->
+    <div class="w-full sm:w-1/2 mb-4 sm:mb-0 mr-0 sm:mr-4">
+      <div
+        *ngFor="let prod of products"
+        class="bg-white mb-5 shadow-md rounded-md overflow-hidden flex"
+      >
+        <div class="w-1/2 flex justify-start">
+          <div
+            class="relative flex-shrink-0 w-56 sm:w-40 md:w-48 overflow-hidden mr-4"
+          >
+            <img
+              [src]="prod.Image"
+              alt="Product Image"
+              class="absolute inset-0 w-full h-full object-cover rounded-bl-lg rounded-tl-lg"
+            />
+          </div>
         </div>
 
-        <!-- Payment Details -->
-        <div (click)="showDetailsAmount=false" *ngIf="showDetailsAmount" class="w-full sm:w-1/2 ml-0 sm:ml-auto">
-            <div class="bg-white shadow-md rounded-md overflow-hidden fixed bottom-0 left-0 w-full sm:relative sm:static sm:ml-0 sm:mt-0">
-                <div class="p-4">
-                    <h2 class="text-2xl font-semibold mb-4">Payment Details</h2>
-                    <div class="flex justify-between border-b border-gray-200 pb-4 mb-4">
-                        <p class="text-gray-600">Item Price</p>
-                        <p class="text-gray-800">₹ {{totalPrice}}</p>
-                    </div>
-
-                    <div class="flex justify-between border-b border-gray-200 pb-4 mb-4">
-                        <p class="text-gray-600">Tax (15%)</p>
-                        <p class="text-gray-800">₹ {{taxPrice}}</p>
-                    </div>
-                    
-
-                    <div class="flex justify-between border-b border-gray-200 pb-4 mb-4">
-                        <p class="text-gray-600">DIscount (3%)</p>
-                        <p class="text-gray-800"> - ₹ {{DisPrice}}</p>
-                    </div>
-
-                    <div class="flex justify-between font-semibold text-lg">
-                        <p class="text-gray-800">Total Amount</p>
-                        <p class="text-gray-800">₹ {{totalCost}}</p>
-                    </div>
-
-
-                    
-
-                    <div class="flex justify-end mt-10">
-                        <button class="bg-[#b98d53] hover:bg-[#4e3b23] text-white font-bold py-3 px-6 rounded-full">Pay Now</button>
-                    </div>
-                </div>
-            </div>
+        <div class="w-1/2 p-4 flex flex-col justify-start">
+          <div class="mb-2 pl-4">
+            <h3 class="text-xl font-semibold mb-2">{{ prod.name }}</h3>
+            <p class="text-gray-600 mb-2">Category: {{ prod.category }}</p>
+            <p class="text-gray-600 mb-2">Type: {{ prod.Type }}</p>
+            <p class="text-gray-600 mb-2">Price: ₹ {{ prod.price }}</p>
+          </div>
+          <button
+            (click)="removeFromcart(prod._id)"
+            class="bg-[#b98d53] hover:bg-[#4e3b23] text-white font-bold py-2 px-4 rounded self-end mt-2"
+          >
+            Remove
+          </button>
         </div>
+      </div>
     </div>
+
+    <!-- Payment Details -->
+    <div
+      (click)="showDetailsAmount = false"
+      *ngIf="showDetailsAmount"
+      class="w-full sm:w-1/2 ml-0 sm:ml-auto"
+    >
+      <div
+        class="bg-white shadow-md rounded-md overflow-hidden fixed bottom-0 left-0 w-full sm:relative sm:ml-0 sm:mt-0"
+      >
+        <div class="p-4">
+          <h2 class="text-2xl font-semibold mb-4">Payment Details</h2>
+          <div class="flex justify-between border-b border-gray-200 pb-4 mb-4">
+            <p class="text-gray-600">Item Price</p>
+            <p class="text-gray-800">₹ {{ totalPrice }}</p>
+          </div>
+
+          <div class="flex justify-between border-b border-gray-200 pb-4 mb-4">
+            <p class="text-gray-600">Tax (15%)</p>
+            <p class="text-gray-800">₹ {{ taxPrice }}</p>
+          </div>
+
+          <div class="flex justify-between border-b border-gray-200 pb-4 mb-4">
+            <p class="text-gray-600">DIscount (3%)</p>
+            <p class="text-gray-800">- ₹ {{ DisPrice }}</p>
+          </div>
+
+          <div class="flex justify-between font-semibold text-lg">
+            <p class="text-gray-800">Total Amount</p>
+            <p class="text-gray-800">₹ {{ totalCost }}</p>
+          </div>
+
+          <div class="flex justify-end mt-10">
+            <button
+              class="bg-[#b98d53] hover:bg-[#4e3b23] text-white font-bold py-3 px-6 rounded-full"
+            >
+              Pay Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-
-
-<div (click)="showDetailsAmount=true" *ngIf="!showDetailsAmount" class="bg-white bottom-0 absolute w-full shadow-md rounded-md overflow-hidden">
+<div *ngIf="products?.length>0">
+  <div
+    (click)="showDetailsAmount = true"
+    *ngIf="!showDetailsAmount"
+    class="bg-white bottom-0 w-full fixed shadow-md rounded-md overflow-hidden"
+  >
     <div class="p-4">
-        <h2 class="text-2xl font-semibold mb-4">Total Amount</h2>
-        <!-- Total Amount -->
-        <div class="flex justify-between border-b border-gray-200 pb-4 mb-4">
-            <p class="text-gray-800 text-lg">₹ {{totalCost}}</p>
-        </div>
-        <!-- Pay Now Button -->
-        <div class="flex justify-end">
-            <button class="bg-[#b98d53] hover:bg-[#4e3b23] text-white font-bold py-3 px-6 rounded-full">Pay Now</button>
-        </div>
+      <h2 class="text-2xl font-semibold mb-4">Total Amount</h2>
+      <!-- Total Amount -->
+      <div class="flex justify-between border-b border-gray-200 pb-4 mb-4">
+        <p class="text-gray-800 text-lg">₹ {{ totalCost }}</p>
+      </div>
+      <!-- Pay Now Button -->
+      <div class="flex justify-end">
+        <button
+          class="bg-[#b98d53] hover:bg-[#4e3b23] text-white font-bold py-3 px-6 rounded-full"
+          (click)="payNow(totalCost)"
+        >
+          Pay Now
+        </button>
+      </div>
     </div>
+  </div>
 </div>

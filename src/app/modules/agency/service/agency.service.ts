@@ -16,6 +16,9 @@ export class AgencyService {
   updateMediaForm(data:any,id:any):Observable<any>{
     return this.http.patch(`${this.agencyApi}/updateMediaForm/${id}`,data)
   }
+  updatecateringForm(data:any,id:any):Observable<any>{
+    return this.http.patch(`${this.agencyApi}/updatecateringForm/${id}`,data)
+  }
   Location(data: any): Observable<any> {
     return this.http.post(`${this.agencyApi}/Location`, data);
   }
