@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environment/environment.prod';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ export class CommonService {
   constructor(private http: HttpClient) {}
   role: any;
 
-  api = 'http://localhost:3000';
+  api = environment.api;
 
   getApi(data: any): Observable<any> {
     return this.http.post(`${this.api}/signup`, data);

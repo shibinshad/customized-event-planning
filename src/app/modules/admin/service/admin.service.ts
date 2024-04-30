@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { environment } from "src/environment/environment.prod";
 
 @Injectable({
     providedIn:'root'
@@ -8,7 +9,7 @@ import { Observable } from "rxjs";
 
 export class AdminService{
     constructor(private http:HttpClient){}
-    api:any='http://localhost:3000/admin'
+    api:any=environment.api
 
     getUsers():Observable<any>{
         return this.http.get(`${this.api}/usersList`)
