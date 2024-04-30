@@ -44,7 +44,7 @@ export class ShowDecorationComponent implements OnInit {
   }
 
   updateService(id: any) {
-    this.router.navigate([`/agency/mediaForm/${id}`]);
+    this.router.navigate([`/agency/decorationForm/${id}`]);
   }
 }
 {

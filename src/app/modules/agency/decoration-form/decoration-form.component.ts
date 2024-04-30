@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AgencyService } from '../service/agency.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-decoration-form',
@@ -13,7 +13,8 @@ export class DecorationFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private service: AgencyService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
   decorationForm!: FormGroup;
 
@@ -26,6 +27,18 @@ export class DecorationFormComponent implements OnInit {
       price: ['', Validators.required],
       image: [''],
       Type: [''],
+    });
+    this.getDetails()
+  }
+
+  getDetails() {
+    this.route.params.subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+      error: (err) => {
+        console.log(err);
+      },
     });
   }
 
@@ -42,7 +55,7 @@ export class DecorationFormComponent implements OnInit {
       this.formdata.append('Discription', val.Discription);
       this.formdata.append('price', val.price);
       this.formdata.append('category', 'Decoration');
-      this.formdata.append('Type',val.Type)
+      this.formdata.append('Type', val.Type);
       this.service.Decoration(this.formdata).subscribe({
         next: (res) => {
           console.log(res);
