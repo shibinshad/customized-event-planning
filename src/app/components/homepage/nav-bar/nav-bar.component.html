@@ -15,18 +15,21 @@
   <div *ngIf="showDiv" class="w-full absolute translate-y-[260px] z-10 custom:hidden ">
     <div class="bg-white">
         <ul class="text-end p-3 border space-y-2">
+          <li [routerLink]="'/'" class="hover:-translate-y-1 transition text-lg h-12">
+            Home
+        </li>
+        <li (click)="goAbout()" class="hover:-translate-y-1 transition text-lg h-12">
+          About
+      </li>
+      <li [routerLink]="'/contact'" class="hover:-translate-y-1 transition text-lg h-12">
+        Contact
+    </li>
             <li *ngIf="role != 'agency'" class="hover:-translate-y-1 transition text-lg h-12">
                 Service
             </li>
-            <li [routerLink]="'/contact'" class="hover:-translate-y-1 transition text-lg h-12">
-                Contact
-            </li>
-            <li (click)="goAbout()" class="hover:-translate-y-1 transition text-lg h-12">
-                About
-            </li>
-            <li [routerLink]="'/'" class="hover:-translate-y-1 transition text-lg h-12">
-                Home
-            </li>
+            
+            
+            
             <li [routerLink]="'/orders'" class="hover:-translate-y-1 transition text-lg h-12">
                 Orders
             </li>
